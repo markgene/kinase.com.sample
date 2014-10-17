@@ -1,0 +1,84 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Kinase Logos{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">Kinase Logos</h3>
+</div>
+
+<div class="row">
+We use sequence logos to show patterns of sequence conservation within
+each kinase class. Every kinase group, family, and subfamily is aligned
+to generate a HMM. From this, we use custom software to build a logo
+view. Here's a logo from the TK group kinase domain, showing the key HRD
+and DFG motifs:
+</div>
+
+<div class="row spacer-min"></div>
+
+<div class="row">
+<p>
+	<img src="{% static 'colt/data/logos/TK_HRD_logo.png' %}" alt="Logo view of TK group" class="img-rounded"> 
+	</p>
+	
+	<div class="row spacer-min"></div>
+	
+<p>
+	Each stack of letters is from a single position in the aligned
+	sequences, and represents the popularity of those residues (in <A
+		HREF="http://en.wikipedia.org/wiki/Sequence_logo">bits</A>). For
+	instance, H is almost universal at position 263, while the R at 264 is
+	sometimes replaced by G, M or other (hard to see!) residues. If you
+	compare this with the equivalent region in TKL group kinases:
+</p>
+</div>
+
+<div class="row spacer-min"></div>
+
+<div class="row">
+<p>
+	<img src="{% static 'colt/data/logos/TKL_HRD_logo.png' %}" alt="Logo view of TKL group" class="img-rounded"> 
+</p>
+<div class="row spacer-min"></div>
+
+<p>You can see the same HRD and DFG motifs standing out, but also
+	group-specific patterns, such as the TK consensus of HRDLAARN changing
+	to HRDLKSxN in TKL. By comparing logos, we can detect both common
+	shared motifs and residues and motifs that are specific to individual
+	kinase classes.
+	</p>
+	</div>
+	
+	<div class="row spacer-min"></div>
+	
+	
+<div class="row">
+<p>
+	You can access both the HMM profiles and logos for every kinase class
+	in the <a href="{% url 'colt:classification' %}">class report</A>
+	pages. Here's an example from the PDK1 family:
+</p>
+<p>
+	<img src="{% static 'colt/data/logos/Class_Report.png' %}" alt="Logo view of TKL group" class="img-rounded"> 
+</p>
+</div>
+
+<div class="row spacer-min"></div>
+
+<div class="row">
+<p>
+	You can dynamically compare logos for any kinase groups, families, or
+	subfamilies using our <a
+		href="{% url 'colt:logo_aligner' %}">Logo
+		Aligner</a> tool, based on LogoMat (Oct 7 update: changes in HMMer and our
+	parsing module have caused an alignment bug, which we're working on,
+	but beware that some pairs of logos may be misaligned). 
+	</p>
+	</div>
+
+
+{% endblock %}

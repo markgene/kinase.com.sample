@@ -1,0 +1,128 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}The Mushroom Kinome{% endblock %}
+{% block meta-description%}
+<meta name="description" content = "Detailed analysis of the mushroom (Coprinopsis cinerea) kinome, it's full complement of protein kinases">
+{% endblock %}
+{% block meta-keywords %}
+<meta name="keywords" content="kinase, protein kinase, kinome, signal transduction, phosphorylate, phosphorylation, kinases, protein kinases, receptor, cytoplasmic, signaling, signalling, intracellular, model organism,  gene, sequence, protein, tyrosine kinase, serine, threonine, tyrosine, kinome, genomic, genome, database, Coprinopsis, cinerea, Coprinus, cinereus, basidiomycete, fungi, fungal, fungus, FunK1">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">The Mushrom Kinome</h3>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<p>The kinome analysis of the mushroom provides the first detailed
+		kinome of a multicellular fungus, and a distant relative of
+		Saccharomyces. Major findings include several highly-expanded unusual
+		kinase families, direct orthologs of many fungal-specific S.
+		cerevisiae kinases, and the presence of several kinase classes found
+		in animals and/or Dictyostelium and secondarily lost from yeast.</p>
+	<p>These pages support the publication of our report of the full
+			complement of human protein kinases (the human kinome) in Science, on
+			Dec 6, 2002:</p>
+<div class="row fluid">
+	<div class="col-md-2">
+		<img src="{% static 'colt/data/fungi/coprinopsis/Coprinopsis_PNAS_cover.gif' %}"
+			alt="Coprinopsis flowering body on PNAS cover" class="img-thumbnail">
+	</div>
+
+		<div class="col-md-10">
+			<blockquote>
+				<p>
+					<strong>Genome evolution in mushrooms: insights from the
+						assembled chromosomes of the basidiomycete <i>Coprinopsis
+							cinerea</i> (Coprinus cinereus)
+					</strong>
+				</p>
+				<p class="medium-font">Stajich, JE, Wilke, SK, Ahren, D, Au,
+					TCH, Birren, BW, Borodovsky, M, Burns, C, Canback, B, Casselton,
+					LA, Cheng, BCK, Deng, J, Dietrich, FS, Fargo, DC, Farman, M,
+					Gathman, AC, Goldberg, J, Guigo, R, Hoegger, P, Hooker, JB,
+					Huggins, A, James, TY, Kamada, T, Kilaru, S, Kodira, C, Kues, U,
+					Kwan, H-S, Li, W, Lilly, WL, Ma, L-J, Mackey, AJ, Manning, G,
+					Martin, F, Muraguchi, H, Palmerini, H, Ramesh, M, Rehmeyer, C,
+					Shenoy, N, Stanke, M, Tunlid, A, Velagapudi, R, Vision, TJ, Zeng,
+					Q, Zolan, ME, Pukkila, PJ.</p>
+				<p class="medium-font">
+					<strong>PNAS</strong> 107:11889-94 (<a
+						href="http://www.ncbi.nlm.nih.gov/pubmed/20547848">Medline</a>, <a
+						href="http://www.pnas.org/content/107/26/11889.full.pdf+html">PDF</a>)
+				</p>
+			</blockquote>
+		</div>
+	</div>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<h3>
+		Highlights of the <i>Coprinopsis</i> Kinome
+	</h3>
+	<h4>A second fungal kinome</h4> 
+	<p>As only the second highly
+	annotated fungal kinome, Coprinopsis provides a good comparison to
+	Saccharomyces cerevisiae. In particular, many yeast kinases could not
+	be classified into shared subfamilies (and so stayed in
+	"X-Unclassified" subfamilies). Coprinopsis has several clear orthologs
+	of these genes, allowing us (soon!) to create new fungal-specific
+	subfamilies. In contrast, other genes now more clearly are seen as
+	duplicates from the recent history of Saccharomyces, and other kinases
+	again are found in Coprinopsis and animals but not yeast, showing
+	secondary loss in the lineage leading to Saccharomyces.</p>
+	
+	<h4>The crazy FunK1 family</h4>
+	<p>The FunK1 family encodes very
+		divergent kinases, and is found only in multicellular fungi, both in
+		the Ascomycetes and Basidiomycetes. There is a huge expansion of the
+		family in Coprinopsis, to 133 members, with considerable diversity
+		within the family. Many of them map to duplicated regions, inculding
+		59 to a short region near the end of chromosome 9.
+		</p>
+	
+	<h4>More Odd Kinases</h4>
+	<p> Coprinopsis also has several other
+		PKL fold kinases that may or may not be protein kinases, and further
+		extend the sequence range of this class. These have been classified
+		under the group 'PKL' in <a href="{% url 'colt:kinbase' %}">KinBase</a>.
+		</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<h3>Resources</h3>
+	All <i>Coprinopsis</i> sequences and classification are now available
+	through our
+	<a href="{% url 'colt:kinbase' %}">KinBase</a> database, where domain structures and
+	alignments can also be generated (pending release, July 2010). Genome
+	wide information is available from the
+	<a
+		href="http://www.broadinstitute.org/annotation/genome/coprinus_cinereus/MultiHome.html">Broad
+		Institute Coprinopsis database</a>.
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<h3>Acknowledgements</h3>
+	The kinome analsis was carried out in co-operation with Jonathan
+	Goldberg of the Broad Institute, and
+	<a href="http://lab.stajich.org/home/people/jason-stajich/">Jason
+		Stajich</a> from UC Riverside who also managed the overall genome
+	project.
+
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}S. cereviae Kinome{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered"><em>S. cereviae</em> Kinome</h3>
+</div>
+
+<div class="row spacer-min"></div>
+
+<div class="row">
+The yeast, <em>Saccharomyces cerevisiae</em> was the first sequenced
+	eukaryotic genome, and the first to have its kinome determined, though
+	the term would not be coined for several years more. Here is the paper,
+	and some supplementary material:
+</div>
+
+<div class="row spacer-min"></div>
+
+<div class="row">
+	<div class="col-md-10">
+		<blockquote>
+			<p>
+				<strong>The protein kinases of budding yeast: six score and more.
+				</strong>
+			</p>
+			<p class="medium-font">T Hunter, GD Plowman</p>
+			<p class="medium-font">
+				<strong>Trends Biochem Sci</strong> 1997,<strong>22</strong> (1) 18-22 (<a
+					href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=9020587&query_hl=7">Medline Abstract</a>, <a
+					href="{% static "colt/data/scerevisiae/TIBS.pdf" %}">PDF full text</a>)
+			</p>
+		</blockquote>
+	</div>
+</div>
+
+<div class="row">
+	<ul>
+		<li><a href="{% static "colt/data/scerevisiae/yeast_dendro.pdf" %}">Unanchored dendrogram</a> of <em>S.
+				cerevisae</em> protein kinases</li>
+		<li>Table summarizing <em>S.
+				cerevisiae</em> protein kinases, protein phosphatases, phosphoprotein
+			binding domains and cyclins (<a
+				href="{% static "colt/data/scerevisiae/yeastkinase.xls" %}">Excel97</a>)
+			</li>
+	</ul>
+</div>
+
+<div class="row spacer-min"></div>
+
+
+{% endblock %}

@@ -1,0 +1,247 @@
+body {
+  min-height: 600px;
+  padding-top: 70px;
+}
+
+.table-nonfluid {
+   width: auto;
+}
+
+.white {
+	color: white;
+}
+
+.gray {
+	color: gray;
+}
+
+.red {
+	color: red;
+}
+
+.crimson {
+	color: crimson;
+}
+
+.royalblue {
+	color: #4169E1;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 800px;
+    overflow-x: hidden;
+}
+
+.table-no-border th, .table-no-border td {
+   border-top: none;
+}
+
+.sequence {font-family:monospace;}
+
+.vertical-middle {
+	display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+.vertical-bottom {
+	.vertical-align: bottom;
+}
+
+.height40px {
+	height: 40px;
+}
+
+img #subfamily-gain-and-loss {
+	
+}
+
+#news-panel-body {
+	height: 220px;
+	overflow:auto;
+}
+
+pre.height200 {
+	height: 200px;
+	overflow:auto;
+}
+
+.hide { 
+    display: none;
+}
+
+.pagination-centered {
+  text-align: center;
+}
+
+.pagination-left {
+  text-align: left;
+}
+
+.pagination-right {
+  text-align: right;
+}
+
+.alignment {
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+}
+
+.alignment2 {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-weight: bold;
+}
+
+#query-div {
+	margin: 50px 0px 0px 0px;
+	height: 500px;
+	text-align: center;
+}
+
+#shaded-tree-mini {
+	display: inline;
+}
+
+.spacer {
+    margin-top: 40px; /* define margin as you see fit */
+}
+
+.spacer-min {
+    margin-top: 20px; /* define margin as you see fit */
+}
+
+.spacer-xmin {
+    margin-top: 10px; /* define margin as you see fit */
+}
+
+.xsmall-font {
+	font-size: x-small;
+}
+
+.small-font {
+	font-size:small;
+}
+
+.medium-font {
+	font-size:medium;
+}
+
+span.presence0 {
+	color: #FF6666;
+}
+
+
+span.presence1 {
+	color: #1E90FF;
+}
+
+del.done {
+	color: #A9A9A9;
+}
+
+del.deprecated {
+	color: #FF6666;
+}
+
+span.text-error {
+	color: #FF0000;
+}
+
+
+span.optional {
+	color: #808080;
+} 
+
+div.analysis-result {
+	/* border-style: solid; */
+	/* border-width: 2px; */
+}
+
+/* Sticky footer styles
+from http://getbootstrap.com/examples/sticky-footer-navbar/sticky-footer-navbar.css
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+
+/************* For eukaryote tree in SVG format *****************/
+g>line {
+	stroke : #A9A9A9;
+	stroke-width: 2;
+}
+
+line.q0 {
+	stroke : #808080;
+	stroke-width: 0.5;
+}
+
+line.q1 {
+	stroke : #808080;
+	stroke-width: 1.5;
+}
+
+line.q2 {
+	stroke: #1E90FF;
+	stroke-width: 2.5;
+}
+
+line.q3 {
+	stroke: #1E90FF;
+	stroke-width: 3.5;
+}
+
+line.q4 {
+	stroke: #4169E1;
+	stroke-width: 4.5;
+}
+
+line.q5 {
+	stroke: #4169E1;
+	stroke-width: 5.5;
+}
+
+#euk-root {
+	stroke-width: 7;
+	stroke-dasharray: 20,10;
+}

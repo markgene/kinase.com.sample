@@ -1,0 +1,297 @@
+{% extends "colt/base.html" %} 
+
+{% load static from staticfiles %} 
+
+{% block title %}Human pseudogenes and their rodent orthologs{% endblock %} 
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">Gene Death in the human lineage</h3>
+</div>
+
+<div class="row">
+	<p>
+	    This page presents some details of kinases and other genes in
+		which genomic sequence analysis indicates that the human gene is a
+		pseudogene with functional orthologs in mouse and rat. These genes are
+		neither processed pseudogenes or duplications of functional genes.
+		Rather, they represent loss of function of previously vital genes.
+	</p>
+	
+	<p>
+		These data highlight a number of genes that were omitted from the 2004
+		'final report' of the public human genome sequencing consortium (1),
+		which noted 37 such human pseudogenes. Criteria used for that
+		assessment included having Ensembl predicted peptides in both rodents,
+		functional sequences in both rat and mouse, and syntenic location of
+		the gene in all three species, as noted by flanking gene sequences.
+	</p>
+	
+	<div class="row spacer-min"></div>
+	
+	<h4>1. Recently decayed human kinase pseudogenes</h4>
+	By comparison of mouse and human genome (see the
+	<a href="{% url 'colt:mouse_kinome' %}">mouse kinome paper</a>), we detected
+	4 functional mouse kinases, whose human orthologs had stops or
+	frameshifts within their kinase domain sequence. Orthology was
+	predicted based on location in syntenic regions and much greater
+	sequence similarity between orthologs than paralogs.
+	<p>These genes are PLK5, one of 5 homologs of the Drosophila cell
+		cycle gene polo, with predicted functions in cell cycle. The human
+		homolog (SgK384ps) has a single stop within the coding region,
+		indicating that it was up to recently functional. The chimp homolog is
+		also a pseudogene, though the disablements are at different locations,
+		indicating that the gene may have been intact, even if not required,
+		in their common ancestor.
+	</p>
+	
+	<p>TSSK5 is also one of a family of five kinases, in this case,
+		named after a Testis-Specific Serine/threonine Kinase. The family is
+		mostly expressed during spermiogenesis and is not well understood
+		functionally. The human gene (aka TSSKps1) has two frameshifts. The
+		chimp ortholog has two frameshifts, one of which is in the same
+		location as human, though oddly, encodes a 1nt insertion relative to
+		mouse, where the human has a 1nt deletion.
+		</p>
+	
+	<p>The other two sequences are guanylate cyclases. These contain a
+		kinase catalytic domain (ePK domain), though it is thought not to be
+		catalytically active. The two human pseudogenes are more highly
+		disabled in human than the previous kinases: KSGCps has two stop and
+		three frameshifts, while CYGXps has five frameshifts, one stop, and is
+		missing the N terminus. The chimp orthologs share many of the
+		disablements and have further disablements of their own. KSGC is also
+		known as Gucy2g (guanylate cyclase 2g) or GC-G, and CYGX as GC-D
+		(Guanylate Cyclase D), which is thought to function in olfaction,
+		giving a functional correlated to its loss in primates.
+		</p>
+	
+	<p>Loss of specific exons within kinase genes has also occurred in
+		the human lineage. For instance, the DCAMKL1 gene in mouse contains an
+		alternatively spliced 16 AA module, whose protein sequence is
+		perfectly conserved in rat. However, the human genome contains a
+		degenerate sequence for that module, and no human ESTs contain the
+		sequence.
+		</p>
+	
+	<p>
+		Of these four genes, only TSSK5 (serine/threonine kinase 22B) is
+		listed in the human genome paper. In all cases, at least partial
+		EST/cDNA converage is available for both mouse and rat orthologs.
+		Mouse and human sequences are availble through <a
+			href="{% url 'colt:kinbase' %}">KinBase</a>; the rat sequences (all
+		full length) are as follows:
+	
+<pre class="height200">
+>PLK5_Rn
+MEPRLRRRRSRQLVATFLRDPGSGRVYRRGKLIGKGAFSRCYKLTDMSTSAVFALKVVPRGGAGRLRLRGKVEREIALHSRLHHRNIVAFHAHFADRDHVYMVLEYCSRQVPLQSLAHVL
+KVRRTLTEPEVRYYFRGLVSGLRYLHQQRIVHRDLKPSNFFLNKNMEVKIGDLGLAARVGPAGRCHRVLCGTPNFQAPEVVSRNGHSAKSDIWALGCIMYTVLTGTPPFAAAPLSEMYQN
+IRDGHYLEPTQLSPSARSLIARLLAPDPDERPSLDHLLQDDFFSQGFTPERLPPHSCHSPPVFAFPPPLGRLFRKVGQLLLTQCRPPCPFTSKEASGPGEESTEPDHMEASNEEGAPLCT
+ESRIHLLTLGTPRTDPADAKGTLALQLEVATRKLCLCLDAGPVAGQDPPGEQRSVLWAPKWVDYSLKYGFGYQLSDGGSGVLFRDGSHMALRPPGGHVSYQPDQGTLWIFALRDVPGPLR
+AKLAVLRLFACYMQRRLREEGTAPMTATPASPDFCLLSFTADAQALAMLFSNGTVQVSSKTSPVQLVLSGEGEDFLLTIQEPGGPSMGTSYTLDVLRSHGISLAVRHHLRLGLHLLQSV
+
+>sp|P51839|CYGX_RAT Olfactory guanylyl cyclase GC-D precursor
+MAGLQQGCHPEGQDWTAPHWKTCRALPGPRGLTVRHLRTVSSISVFSVVFWGVLLWADSLSLPAWARETFTLGVLGPWDCDPIFAQALPSMATQLAVDRVNQDASLLLGSQLDFKILPTG
+CDTPHALATFVAHRNTVAAFIGPVNPGYCPAAALLAQGWGKSLFSWACGAPEGGGALVPTLPSMADVLLSVMRHFGWARLAIVSSHQDIWVTTAQQLATAFRAHGLPIGLITSLGPGEKG
+ATEVCKQLHSVHGLKIVVLCMHSALLGGLEQTVLLRCAREEGLTDGRLVFLPYDTLLFALPYRNRSYLVLDDDGPLQEAYDAVLTISLDTSPESHAFTATKMRGGAAANLGPEQVSPLFG
+TIYDAVILLAHALNHSETHGTGLSGAHLGNHIRALDVAGFSQRIRIDGKGRRLPQYVILDTNGEGSQLVPTHILDVSTQQVQPLGTAVHFPGGSPPAHDASCWFDPNTLCIRGVQPLGSL
+LTLTITCVLALVGGFLAYFIRLGLQQLRLLRGPHRILLTPQELTFLQRTPSRRRPHVDSGSESRSVVDGGSPQSVIQGSTRSVPAFLEHTNVALYQGEWVWLKKFEAGTAPDLRPSSLSL
+LRKMREMRHENVTAFLGLFVGPEVSAMVLEHCARGSLEDLLRNEDLRLDWTFKASLLLDLIRGLRYLHHRHFPHGRLKSRNCVVDTRFVLKITDHGYAEFLESHCSFRPQPAPEELLWTA
+PELLRGPRGPWGPGKATFKGDVFSLGIILQEVLTRDPPYCSWGLSAEEIIRKVASPPPLCRPLVSPDQGPLECIQLMQLCWEEAPDDRPSLDQIYTQFKSINQGKKTSVADSMLRMLEKY
+SQSLEGLVQERTEELELERRKTERLLSQMLPPSVAHALKMGTTVEPEYFDQVTIYFSDIVGFTTISALSEPIEVVGFLNDLYTMFDAVLDSHDVYKVETIGDAYMVASGLPRRNGNRHAA
+EIANMALEILSYAGNFRMRHAPDVPIRVRAGLHSGPCVAGVVGLTMPRYCLFGDTVNTASRMESTGLPYRIHVSRNTVQALLSLDEGYKIDVRGQTELKGKGLEETYWLTGKTGFCRSLP
+TPLSIQPGDPWQDHINQEIRTGFAKLARVC
+
+>KSGC aka GC-G from rat
+MASRARSEPPLEHRFYGGAESHAGHSSLVLTLFVVMLMTCLEAAKLTVGFHAPWNISHPFSVQRLGAGLQIAVDKLNSEPVGPGNLSWEFTYTNATCNAKESLAAFIDQVQREHISVLIG
+PACPEAAEVIGLLASEWDIPLFDFVGQMTALEDHFWCDTCVTLVPPKQEIGTVLRESLQYLGWEYIGVFGGSSAGSSWGEVNELWKAVEDELQLHFTITARVRYSSGHSDLLQEGLRSMS
+SVARVIILICSSEDAKHILQAAEDLGLNSGEFVFLLLQQLEDSFWKEVLAEDKVTRFPKVYESVFLIAPSTYGGSAGDDDFRKQVYQRLRRPPFQSSISSEDQVSPYSAYLHDALLLYAQ
+TVEEMMKAEKDFRDGRQLISTLRADQVTLQGITGPVLLDAQGKRHMDYSVYALQKSGNGSRFLPFLHYDSFQKVIRPWRDDLNASGPHGSHPEYKPDCGFHEDLCRTKPPTGAGMTASVT
+AVIPTVTLLVVASAAAITGLMLWRLRGKVQNHPGDTWWQIHYDSITLLPQHKPSHRGTPMSRCNVSNASTVKISADCGSFAKTHQDEELFYAPVGLYQGNHVALCYIGEEAEARIKKPTV
+LREVWLMCELKHENIVPFFGVCTEPPNICIVTQYCKKGSLKDVLRNSDHEMDWIFKLSFVYDIVNGMLFLHGSPLRSHGNLKPSNCLVDSHMQLKLAGFGLWEFKHGSTCRIYNQEATDH
+SELYWTAPELLRLRELPWSGTPQGDVYSFAILLRDLIHQQAHGPFEDLEAAPEEIISCIKDPRAPVPLRPSLLEDKGDERIVALVRACWAESPEQRPAFPSIKKTLREASPRGRVSILDS
+MMGKLEMYASHLEEVVEERTCQLVAEKRKVEKLLSTMLPSFVGEQLIAGKSVEPEHFESVTIFFSDIVGFTKLCSLSSPLQVVKLLNDLYSLFDHTIQTHDVYKVETIGDAYMVASGLPI
+RNGAQHADEIATMSLHLLSVTTNFQIGHMPEERLKLRIGLHTGPVVAGVVGITMPRYCLFGDTVNMASRMESSSLPLRIHVSQSTARALLVAGGYHLQKRGTISVKGKGEQTTFWLTGKD
+GFAVPLPEFTEEEAKVPEIL
+
+>TSSK5_Rn
+MRSNSRRKEDQRVFIEQVRECMNNGYLLSSKKIGSGAFSKVYLAYATRERMKHNPRLSSDLRGKHHSMVAIKIVSMAEAPAEYSRKFLPREILSLNATYKHMNIVQLYETYQNSQRSYLV
+LELAARGDLLEYINAVSDLRCCPGLEEEEARRLFWQLVSAVAHCHSVGIVHRDLKCENILLDDQGFLKLTDFGFANWVGIKNSLLSTFCGSVAYTAPEILMSKKYNGEQADLWSLGIILH
+AMVSGKLPFKEHQPHRMLHLIRRGPIFRPRLSPECRDLIRGLLQLHPGDRLDLQQVAAHCWMLPAEHMLSSVLGATREQKHSWSAIGPDNAEPDRDTRYSRSKGSSPSSGRTSPRRASLA
+QLCSTWKPAPEE
+</pre>
+
+<div class="row spacer"></div>
+			<h4>2. Non-kinase genes decayed in human</h4> 
+			Many other genes have been
+			reported in the literature to be functional in mouse and
+			non-functional in human. Here are a selection which complement the
+			list from the genome paper. They have not been analyzed in depth and
+			may not correspond to the strict criteria used in the genome study.
+
+			<h5>2.1 OST-PTP</h5> This tyrosine phosphatase is involved in osteoblast
+			differentiation in rodents, but is non-functional in human, where the
+			ortholog is a pseudogene, and a second psu also exists (2).
+
+			<h5>2.2 Cytochrome P450 genes</h5> This is a dynamic family, many of
+			whose members cluster on the chromosome. There are two cases of
+			Cyp450 orthologs in both mouse and rodent whose closest syntenic gene
+			in human, and closest sequence homolog, is a pseudogene (3). These
+			are the cyp2g1 and cyp2t1 genes of rodents (the human psueogenes are
+			annotated as CYP2G2P and CYP2T2P). In both cases, a recent
+			duplication has made a second copy of the human pseudogene, which is
+			also non functional, but sequence similarity and chromosomal position
+			distinguish the ortholog from the paralog.
+
+			<h5>2.3 Neuropeptide Y receptor 6</h5> The human form has a premature
+			stop that causes loss of at least part of its function (see <a
+			href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=OMIM&dopt=Detailed&tmpl=dispomimTemplate&list_uids=601770">OMIM</a>
+			entry).
+
+			<h5>2.4 Various proteases</h5> Many proteases are members of
+			fast-evolving families, with extensive gene birth and death. Cases of
+			proteases present in mouse but not human are covered in a review (4)
+			and more extensively in a <a
+			href="http://www.clip.ubc.ca/Degradomics_&_Degradomes.htm">Degradome
+				and Degradomics website</a> from the same group. Genes lost in human
+			inlude the aspartate protease <a
+			href="http://www.ncbi.nlm.nih.gov/projects/LocusLink/LocRpt.cgi?l=1542">chymosin</a>,
+			the apoptosis-related <a
+			href="http://www.ncbi.nlm.nih.gov/projects/LocusLink/LocRpt.cgi?l=120329">caspase
+				12</a>, several ADAM family members (ADAM3, 4, 4B, 5, 6, 25), the
+			testis-specific proteases TESS3 and 4 and TESP2 and 3, intestinal
+			serine protease 1 (DISP) and implataion serine protease 2 (<a
+			href="http://www.ncbi.nlm.nih.gov/projects/LocusLink/LocRpt.cgi?l=123787">ISP2</a>)
+			and mastin. Two of these: caspse 12 and ADAM25 are mentioned in the
+			human genome paper.
+
+			<h5>2.6 Gene loss within primate lineages</h5> Gene death has continued
+			even within the primate lineage, including some genes with known
+			functional correlates to their death, and several with little
+			functional explanation. I'm grateful to Chris Ponting for pointing
+			out a number of these additional published examples:
+
+			<ul>
+				<li>The sialic acid derivative N-glycolylneuraminic acid is
+					reduced or absent from human cells. The synthesizing enzyme, <strong>CMP-sialic
+						acid hydroxylase</strong>, is present broadly, including in mouse and in
+					several primates, but has been lost in the human lineage, due to a
+					92bp deletion (5). The loss may influence binding of viral and
+					bacterial pathogens, as well as endogenous cell-cell recognition.</li>
+				<li>The <strong>myosin gene MYH16</strong> is similarly lost in humans,
+					due to a 2 base pair deletion and frameshift, relative to several
+					other primate species (6). The gene is expressed selectively in
+					masticatory (chewing) muscles, and its loss has been correlated
+					with changes in muscle fibre and skeletal morphology between human
+					and primates.</li>
+				<li><strong>EMR4</strong> is a member of the EGF-TM7 family of serpentine
+					(7-transmembrane-helix) receptors with EGF repeats, expressed
+					selectively in the immune system. EMR4 is found in mouse and
+					chimpanzee, but in human contains an internal 1 nt deletion,
+					leading to a truncated protein losing more than half of it sequence
+					and its likely activity (7,8).</li>
+				<li><strong>Urate Oxidase</strong> which converts uric acid to allantoin,
+					has been twice been independently inactivated in primate lineages,
+					including human (9). Gene inactivation correlates with a high level
+					of uric acid in human tissues. The gene is essential in mice, but
+					has also been seen to be inactivated in a number of other animal
+					lineages.</li>
+				<li>The human <strong>tropoelastin</strong> gene is functional, but has
+					lost two exons relative to several other vertebrates, including
+					some primates (10).
+					</li>
+				<li>Tremendous gene death has happened in the human <strong>olfactory
+						receptor</strong> repretoire. Mouse and human genomes contain over 1,000
+					olfactory receptor sequences, of which over 60% of the human
+					sequences are pseudogenes compared to about 20% in mouse (11). The
+					size of the family, their mapping into clusters, and dynamic
+					evolution make it difficult to pinpoint orthology and specific gene
+					loss, but a number of studies have shown that there has been
+					progressive gene death during the primate lineage (12), and that it
+					even has continued within human populations (13).
+					</li>
+			</ul>
+
+			<div class="row spacer-min"></div>
+			
+			<h4>References</h4>
+		    <ol>
+		      <li>
+			The International Genome Sequencing Consortium. Finishing the
+			euchromatic sequence of the human genome. Nature <strong>431</strong>, 931-45
+			(2004).
+			</li>
+			<li>
+				Cousin, W., Courseaux, A., Ladoux, A., Dani, C. and Peraldi, P.
+				Cloning of hOST-PTP: the only example of a
+				protein-tyrosine-phosphatase the function of which has been lost
+				between rodent and human. Biochem Biophys Res Commun <strong>321</strong>,
+				259-65 (2004).
+				</li>
+			<li>
+				Nelson, D. R. et al. Comparison of cytochrome P450 (CYP) genes
+				from the mouse and human genomes, including nomenclature
+				recommendations for genes, pseudogenes and alternative-splice
+				variants. Pharmacogenetics <strong>14</strong>, 1-18 (2004).
+				</li>
+			<li>
+				Puente, X. S., Sanchez, L. M., Overall, C. M. and Lopez-Otin, C.
+				Human and mouse proteases: a comparative genomic approach. Nat Rev
+				Genet <strong>4</strong>, 544-58 (2003).
+				</li>
+			<li>
+				Chou, H. H., Takematsu, H., Diaz, S., Iber, J., Nickerson, E.,
+				Wright, K. L., Muchmore, E. A., Nelson, D. L., Warren, S. T., and
+				Varki, A. A mutation in human CMP-sialic acid hydroxylase occurred
+				after the Homo-Pan divergence. Proc. Natl. Acad. Sci. U. S. A. <strong>95</strong>,
+				11751-11756 (1998).
+				</li>
+			<li>
+				Stedman HH, Kozyak BW, Nelson A, Thesier DM, Su LT, Low DW,
+				Bridges CR, Shrager JB, Minugh-Purvis N, Mitchell MA. Myosin gene
+				mutation correlates with anatomical changes in the human lineage.
+				Nature <strong>428</strong>, 415-8 (2004)
+				</li>
+			<li>
+				Stacey, M. et al. EMR4, a novel epidermal growth factor (EGF)-TM7
+				molecule up-regulated in activated mouse macrophages, binds to a
+				putative cellular ligand on B lymphoma cell line A20. J Biol Chem <strong>277</strong>,
+				29283-93 (2002).
+				</li>
+			<li>
+				Hamann, J. et al. Inactivation of the EGF-TM7 receptor EMR4 after
+				the Pan-Homo divergence. Eur J Immunol <strong>33</strong>, 1365-71 (2003).
+				</li>
+			<li>
+				Oda, M., Satta, Y., Takenaka, O. & Takahata, N. Loss of urate
+				oxidase activity in hominoids and its evolutionary implications. Mol
+				Biol Evol <strong>19</strong>, 640-53 (2002).
+				</li>
+			<li>
+				Szabo, Z. et al. Sequential loss of two neighboring exons of the
+				tropoelastin gene during primate evolution. J Mol Evol <strong>49</strong>,
+				664-71 (1999).
+				</li>
+			<li>
+				Gilad, Y., Man, O., Paabo, S. and Lancet, D. Human specific loss
+				of olfactory receptor genes. Proc Natl Acad Sci U S A <strong>100</strong>,
+				3324-7 (2003).
+				</li>
+			<li>
+				12. Gilad, Y., Bustamante, C. D., Lancet, D. and Paabo, S. Natural
+				selection on the olfactory receptor gene family in humans and
+				chimpanzees. Am J Hum Genet <strong>73</strong>, 489-501 (2003).
+				</li>
+			<li>
+				Gilad, Y. and Lancet, D. Population differences in the human
+				functional olfactory repertoire. Mol Biol Evol <strong>20</strong>, 307-14
+				(2003).
+				</li>
+			</ol>
+</div>
+
+			<div class="row spacer-min"></div>
+
+
+{% endblock %}

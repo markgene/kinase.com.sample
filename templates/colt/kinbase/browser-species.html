@@ -1,0 +1,230 @@
+{% extends "colt/base.html" %} 
+{% load static from staticfiles %} 
+{# Templates #}
+{# http://bl.ocks.org/robschmuecker/7880033 #}
+{# http://bl.ocks.org/mbostock/4339083 #}
+
+{% block title %}KinBase Browser{% endblock %} 
+
+{% block css %}
+<style>
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+</style>
+
+{% endblock %}
+
+{% block js %}
+  <script src="{% static "colt/js/d3.min.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="row-fluid">
+
+<div class="page-header pagination-centered">
+  <h4>Kinome of <em>{{ species.latin }}</em></h4>
+</div>
+
+<!-- Legend -->
+<div class="row-fluid">
+<p>
+Kinases of <em>{{ species.latin }}</em> are grouped into 
+a hierarchical classification of three levels: group, family, and subfamily. 
+You can browse the genes through the levels in the figure below. Each node is a group,
+family, subfamily or gene. The size of node is corresponding to gene number within a class (also 
+shown in the parentheses). 
+The families, subfamilies and genes are collapsed for simplicity, and you can view them by clicking the
+nodes. You can also find a complete gene list of a class, or the detail information of a gene
+ by clicking the node name.
+</p>
+</div>
+
+<!-- Kinome dropdown -->
+	<div class="input-group-btn">
+		<button type="button" class="btn btn-default dropdown-toggle"
+			data-toggle="dropdown">
+			Select species <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+		  {% for s in species_list %}
+	        {% if s.is_used %}
+	        <li><a href="{% url 'colt:kinbase_browser_species' species_id=s.id %}"><em>{{ s.latin }}</em></a></li>					       
+            {% endif %}
+          {% endfor %}
+		</ul>
+	</div>
+
+
+
+<!-- Tree -->
+<div class="row-fluid pagination-centered" id="ktree"></div>
+
+<script>
+
+var margin = {top: 20, right: 120, bottom: 20, left: 120},
+    width = 960 - margin.right - margin.left,
+    height = 800 - margin.top - margin.bottom;
+    
+var i = 0,
+    duration = 750,
+    root;
+
+var tree = d3.layout.tree()
+    .size([height, width]);
+
+var diagonal = d3.svg.diagonal()
+    .projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("#ktree").append("svg")
+    .attr("width", width + margin.right + margin.left)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("{% url 'colt:api_gene_tree' species_id=species_id %}", function(error, flare) {
+  root = flare;
+  root.x0 = height / 2;
+  root.y0 = 0;
+
+  function collapse(d) {
+    if (d.children) {
+      d._children = d.children;
+      d._children.forEach(collapse);
+      d.children = null;
+    }
+  }
+
+  // root.children.forEach(function(n) { n.children.forEach(collapse) }); // family level
+  root.children.forEach(collapse);
+  update(root);
+});
+
+d3.select(self.frameElement).style("height", "800px");
+
+function update(source) {
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse(),
+      links = tree.links(nodes);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+  // Update the nodes
+  var node = svg.selectAll("g.node")
+      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .on("click", click);
+
+  nodeEnter.append("circle")
+      .attr("r", 10)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeEnter.append("a")
+      .attr("xlink:href", function(d) { return d.url })
+      .attr("target", "_blank")
+      .append("text")
+      .attr("x", function(d) { return d.children || d._children ? -10 - 1.5 * Math.sqrt(d.size) : 10; })
+      .attr("dy", ".35em")
+      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+      .text(function(d) { return d.level +  " " + d.name + " (" + d.size + ")"; })
+      .style("fill-opacity", 1e-6);
+
+
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeUpdate.select("circle")
+      .attr("r", function(d) { return 2 * Math.sqrt(d.size) })
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeUpdate.select("text")
+      .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .remove();
+
+  nodeExit.select("circle")
+      .attr("r", 10);
+
+  nodeExit.select("text")
+      .style("fill-opacity", 1e-6);
+
+  // Update the links
+  var link = svg.selectAll("path.link")
+      .data(links, function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("path", "g")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      });
+
+  // Transition links to their new position.
+  link.transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+// Toggle children on click.
+function click(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+  update(d);
+}
+
+</script>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Kinase.com Help with Viewers{% endblock %}
+
+{% block content %}
+
+<div class="page-header pagination-centered">
+  <h4>Help with Viewers</h4>
+</div>
+
+
+<FONT face="Lucida Grande, Arial, Helvetica">
+
+<h4>Viewing data with helper applications</h4>
+Some of our data is best displayed using specialized applications rather than a web browser. Here's how to set up your browser to open files in these 'helper apps'. You may also use other alignment and tree programs - just follow the instructions on setting MIME types in your browser.
+<P>
+<h4>SeaView for multiple sequence alignments</h4>
+SeaView is a general purpose multiple alignment viewer that allows highlighting, editing and multiple visualization modes for aligned sequences. SeaView is available for Mac, Windows and Unix; here is the <A HREF="http://pbil.univ-lyon1.fr/software/seaview.html">download site</A>. To have your browser automatically open alignment files in SeaView, go to your browser preferences, and under 'MIME types' add a new type, called <I>'application/x-align'</I>, and link that to your local installation of SeaView.
+
+<h4>njplot for phylogenetic tree viewing</h4>
+NJPlot is a simple but versatile tree viewer, allowing display of branch lengths and bootstrap values, and easy rerooting and pruning of trees. NJPlot is also available for Mac, Windows and Linx, and can be installed from the <A HREF="http://pbil.univ-lyon1.fr/software/njplot.html">download site</A>. The MIME type to assign to this is <I>'application/x-tree'</I>.
+
+<h4>Problems with the Mac Safari browser</h4>
+Currently, Safari (versions 2.0 and below) does not support addition of new helper applications. If you click on the .aln or .ph files, they will be saved to disk, and you can open them from there. Hopefully this will be fixed in future versions - feel free to let Apple know of this shortcoming, by selecting the the 'Bug' item under the view bar, and then click on the bug icon (top right) to report the flaw to Apple. Meanwhile, you might consider using another browser, such as the open-source Mozilla <A HREF="http://www.mozilla.org/products/firefox/">Firefox</A> (a descendant of the Netscape browser).
+<P>
+<h4>Standard Helpers for PDF and Excel files</h4>
+To view files in Acrobat/PDF format, you can use the free <A HREF="http://www.adobe.com/support/downloads/main.html">Acrobat Reader</A>, and for Windows users, there is a free <A HREF="http://www.microsoft.com/downloads/details.aspx?FamilyID=4EB83149-91DA-4110-8595-4A960D3E1C7C&displaylang=EN">Excel</A> spreadsheet viewer.
+<P>
+</FONT>
+
+{% endblock %}

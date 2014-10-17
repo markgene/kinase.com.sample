@@ -1,0 +1,191 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}HyperTree: hyperbolic phylogenetic tree viewer{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">HyperTree: hyperbolic phylogenetic tree viewer</h3>
+</div>
+
+<!-- About -->
+<p>
+	<strong>HYPERTREE</strong> is a Java phylogenetic tree viewer, with a
+	hyperbolic ('fish-eye') view and editing abilities that help in
+	managing very large trees.
+</p>
+
+<p>
+<ul class="list-unstyled">
+	<li><strong>New</strong> (June 2011): Hypertree v1.2.2 adds basic
+		support for phyloXML and better newick format integration and a few
+		bug fixes.</li>
+	<li><strong>Update</strong> (Oct 2008): Hypertree v1.2 provides
+		improved printing, import of distance matrices and simple heat map
+		drawing.</li>
+	<li><strong>Update</strong> (Mar. 2008): Hypertree V1.1 includes
+		numerous bug fixes and additional functionality.</li>
+	<li><strong>Update</strong> (Mar 2008): Bug with license file now
+		corrected.</li>
+</ul>
+</p>
+
+<div class="row spacer-min"></div>
+
+
+<!-- Nav -->
+	<div class="pagination-centered">
+		<a href="#features">Features</a> | 
+		<a href="#download">Download</a> |
+		<a href="#usage">Usage tips</a> | 
+		<a href="#citation">Citation</a>
+	</div>
+
+<div class="row spacer-min"></div>
+
+<!-- Features -->	
+<div id="features">
+	<h4>Features</h4>
+	<p>HyperTree includes many features for navigating large trees,
+		such as the ability to:
+	<ul>
+		<li>visualize <strong>large trees</strong> with hundreds of nodes or more</li>
+		<li><strong>rotate</strong> and <strong>drag</strong> the display in cartesian space</li>
+		<li><strong>search</strong> and <strong>select</strong> nodes</li>
+		<li><strong>copy clusters</strong> for pasting into other programs</li>
+		<li><strong>color-code</strong> branches</li>
+		<li><strong>label</strong> branches (eg, common family members)</li>
+		<li><strong>zoom</strong> in and out</li>
+		<li>view phylogenetic trees and other hierarchical clusters, such
+			as gene expression profile clusters</li>
+		<li>run on <strong>several platforms</strong>: Mac, Windows, Unix/Linux
+		</li>
+	</ul>
+</div>
+
+<div class="row spacer-min"></div>
+
+<!-- Download -->
+<div id="download">
+
+<h4>Download</h4>
+<p>
+	HyperTree is freely available for non-commercial use. Download the Java
+	jar file: <a href="{% static "colt/data/hypertree/hypertree-1.2.2.zip" %}">HyperTree.zip</a>,
+	a <a href="{% static "colt/data/hypertree/sample_tree.ph" %}">sample
+		tree file</a> and a <a href="{% static "colt/data/hypertree/sample_colors.txt" %}">sample
+		color file</a>.
+</p>
+
+<p>
+	To run the program, you must have <a href="http://java.sun.com/j2se/">Java
+		2</A> or higher installed.
+</p>
+<p>
+<ol>
+	<li>On Macintosh or Windows, simply unzip the zip file and
+		double-click the jar file to launch the program.</li>
+	<li>On Unix and Linux, launch from the command line:</li>
+	<code> java -jar HyperTree.jar </code>
+</ol>
+</p>
+
+<p>Enjoy!</p>
+</div>
+
+<div class="row spacer-min"></div>
+
+<!-- Usage -->
+<div id="usage">
+	<h4>Usage Tips</h4>
+	<p>Currently no comprehensive usage manual exists for HyperTree.
+		However, here is a brief summary of 'non-obvious' features.</p>
+
+	<dl>
+		<dt>Mouse Controls</dt>
+		<dl>To rotate the tree, drag while holding down the shift key.
+		</dl>
+
+		<dt>Reading and Writing Tree Files</dt>
+		<dd>
+			<ul>
+				<li>The demo version of HyperTree displays a tree of <i>C.
+						elegans</i> protein kinases. It cannot save modifications to this tree
+					or open any other tree files
+				</li>
+				<li>HyperTree reads and saves trees in Phylip format</li>
+				<li>It displays one tree at a time; if a file contains multiple
+					trees, only the first tree will be displayed.</li>
+			</ul>
+		</dd>
+
+		<dt>Selecting Nodes and Branches</dt>
+		<dd>
+			<ul>
+
+				<li>Labels appear on mouseover</li>
+				<li>Click a label or node to select it</li>
+				<li>Hold down the <kbd>SHIFT</kbd> or <kbd>CTRL</kbd> key when clicking to add
+					multiple selections</li>
+				<li>Select an internal node and then choose "Select Children"
+					to select an entire subtree</li>
+				<li>Click "Copy" or <kbd>CTRL</kbd> + C to copy all selections to the
+					system clipboard. Then you can paste them into other programs.
+				</li>
+			</ul>
+		</dd>
+
+		<dt>Colorizing the Tree</dt>
+		<dd>
+			<ul>
+
+				<li>Choose "Color" to change the color of all selected labels
+					and nodes</li>
+				<li>Choose "Export Colors" from the "File" menu to save the
+					colors</li>
+				<li>You can create a color file independently of HyperTree. To
+					import a color file, choose "Import Colors" from the "File" menu</li>
+				<li>A valid color file has the following format: <pre>
+	nodeLabel1  color1
+	nodeLabel2  color2
+</pre> Node labels are case-sensitive. They must exactly match the labels in
+					the tree. Node labels are separated by white space from the color.
+				</li>
+				<li>Colors can be specified in the color file in one of three
+					ways. A color can be either an RGB value, a color name in plain
+					English using any of the standard color names recognized by
+					Netscape and Internet Explorer; or an arbitrary identifier, in
+					which case HyperTree will attempt to automatically assign a color
+					by default. E.g., <pre>
+	ZC123.4   darkGreen
+	ZC239.7   0,0,255
+	ZC373.4   tyrosineKinase
+</pre>
+				</li>
+			</ul>
+		</dd>
+
+	</dl>
+<p>HyperTree was written by Jonathan Bingham of Sugen, Inc. and is
+	made freely available for non-commercial use.</p>
+</div>
+
+<div class="row spacer-min"></div>
+
+<!-- Citation -->
+<div id="citation">
+	<h4>Citation</h4>
+	If you use Hypertree in a publication, please cite:
+	<p>
+	<blockquote>
+		<strong>Visualizing harge hierarchical clusters in hyperbolic space</strong><br>
+		J. Bingham, S Sudarsanam<br> Bioinformatics (2000) <strong>16</strong>(7):
+		660-1 (<a
+			href="http://bioinformatics.oxfordjournals.org/cgi/reprint/16/7/660.pdf">PDF</a>)
+	</blockquote>
+
+<div class="row spacer-min"></div>
+
+{% endblock %}

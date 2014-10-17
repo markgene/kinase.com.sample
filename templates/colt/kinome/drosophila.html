@@ -1,0 +1,66 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}The Kinome of Drosophila melanogaster{% endblock %}
+{% block meta-description%}
+<meta name="description" content = "Detailed analysis of the fruit fly (Drosophila melanogaster) kinome, it's full complement of protein kinases">
+{% endblock %}
+{% block meta-keywords %}
+<meta name="keywords" content="kinase, protein kinase, kinome, signal transduction, phosphorylate, phosphorylation, kinases, protein kinases, receptor, cytoplasmic, signaling, signalling, intracellular, model organism,  gene, sequence, protein, tyrosine kinase, serine, threonine, tyrosine, kinome, genomic, genome, database, drosophila, Drosophila melanogaster, fruit fly">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">The Kinome of Drosophila melanogaster</h3>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">We cataloged the Drosophila kinome in 2002,
+	and published it along with an evolutionary comparison to yeast, worm,
+	and human kinomes. It included several novel kinases, improved
+	sequences for others, and a detailed classification of the full kinome.</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<blockquote>
+		<p>
+			<strong>Evolution of protein kinase signaling from yeast to
+				man.</strong>
+		</p>
+		<p class="medium-font">G Manning, GD Plowman, T Hunter, S
+			Sudarsanam (2002)</p>
+		<p class="medium-font">
+			Trends in Biochemical Sciences <strong>27</strong> (10):: 514-520. (<a
+				href="{% static 'colt/data/evolution/TiBS_Kinase_Evolution.pdf' %}">PDF</a>*)
+		</p>
+	</blockquote>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<p>
+		All of the sequences and classification of these kinases are available
+		through our <a href="{% url 'colt:kinbase' %}">KinBase</A> database.
+	</P>
+	</p>
+</div>
+
+<div class="row-fluid">
+	<p>
+		* Reprinted from Trends in Biochemical Sciences, Vol 27(10), G
+		Manning, GD Plowman, T Hunter, S Sudarsanam, Evolution of protein
+		kinase signaling from yeast to man, 514-520, Copyright (2002), with
+		permission from <a href="http://www.sciencedirect.com">Elsevier
+			Science</a>.
+	</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+
+{% endblock %}

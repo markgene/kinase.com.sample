@@ -1,0 +1,157 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Sponge Kinome{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">Sponge Kinome</h3>
+</div>
+
+<div class="row-fluid">
+   <p>
+		The sponge, <em>Amphimedon queenslandica</em>, sits at a crucial
+		junction in evolutionary history. As one of the simplest and earliest
+		branching metazoans, it offers key insights into the explosion of
+		kinase complexity around the emergence of multicellualar animals. By
+		comparing this kinome to other early branching metazoans, and to their
+		closest unicellular relatives (such as the choanoflagellate <em><a
+			href="{% url 'colt:monosiga_kinome' %}">Monosiga brevicollis</A></em>), we are
+		able to track the emergence of well established metazoan kinase
+		classes and kinase signalling pathways. Our analysis of the sponge
+		kinome is part of the sponge genome paper (below), and forms a core
+		part of our work to understand the evolution of the metazoan kinome.
+	</p>
+	<blockquote>
+		<p><strong>The genome of the haplosclerid demosponge <em>Amphimedon
+				queenslandica</em> and the evolution of animal complexity.
+		</strong> 
+		</p>
+		<p class="medium-font">Srivastava, M, Simakov, O, Chapman, J,
+			Mitros, T, Hellsten, U, Putnam, NH, Fahey, B, Gauthier, M, Larroux,
+			C, Richards, G, Stanke, M, Adamska, M, Darling, A, Dacre, M, Degnan,
+			S, Zhai, Y, Adamski, M, Calcino, A, Goodstein, DM, Shengqiang Shu, S,
+			Woodcroft, B, Martindale, M, Leys, S, Manning, G, Degnan, B, Rokhsar,
+			DS.</p>
+		<p class="medium-font">
+			<strong>Nature</strong> (2010) 466:720-726 (<a
+			href="http://www.ncbi.nlm.nih.gov/pubmed/20686567">Medline</a>, <a
+			href="http://www.nature.com/nature/journal/v466/n7307/pdf/nature09201.pdf">PDF</a>)
+			</p>
+	</blockquote>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+
+<!-- Highlights -->
+<div class="row-fluid">
+	<h3>Highlights of the Sponge Kinome</h3>
+	<p>
+		<em>Amphimedon queenslandica</em> encodes 705 kinases. This is the
+		largest animal kinome to date, contrary to the 'simple' biology of
+		sponges. These include large expansions in the TK and TKL group, and
+		also a much greater number of orthologs of human kinases than are
+		found in unicellular organisms.
+	</p>
+
+	<p>
+		We find that the majority of of kinase complexity appears very early
+		in the animal lineage: while just 23% of human kinase classes are
+		found in <em><a href="{% url 'colt:scerevisiae_kinome' %}">yeast</a></em>,
+		74% have orthologs in <em>Amphimedon</em> (and 56% have orthologs in <em><a
+			href="{% url 'colt:monosiga_kinome' %}">Monosiga</a></em>). This number
+		rises to 83% in sea anemone (<em>Nematostella vectensis</em>).
+		Interestingly, we actually see a large loss of Human kinase classes in
+		the model organisms <em><a
+			href="{% url 'colt:drosophila_kinome' %}">Drosophila</a></em> and <em><a
+			href="{% url 'colt:celegans_kinome' %">C. elegans</a></em> - with just 77%
+		and 70% respectively (figure 1).
+	</p>
+
+
+	<div class="row pagination-centered">
+		<p>
+			<img src="{% static 'colt/data/sponge/Human_Kinase_Classes.png' %}"
+				alt="The appearance of human kinase classes throughout eukaryotic evolution"
+				id="Human Kinase Classes" align="middle" width="470" height="407">
+		</p>
+		<p>
+			<strong>Figure 1. The appearance of Human kinase classes
+				throughout eukaryotic evolution</strong>
+		</p>
+	</div>
+
+	<p>
+		More than half of the <em>Amphimedon</em> kinome is found in 11
+		expanded classes of the tyrosine kinase (TK) and tyrosine kinase like
+		(TKL) groups. Of the tyrosine kinases, a core of ~58 are recognizable
+		orthologs of kinases present in more complex metazoa, the remaining
+		~173 are apparently unique to <em>Amphimedon</em> and have expanded to
+		suit the needs of its environment. We see a broad range of kinases
+		with diverse extra-cellular domains, the functions of which we can
+		only guess at.
+	</p>
+	<p>In the receptor tyrosine kinases (RTKs) that are recognizable
+		orthologs to known RTKs in human, we see interesting patters of
+		conservation: in some cases, such as EGFR, we see fully developed
+		human-like kinases with conservation of both the cytoplasmic kinase
+		domain and the extra-cellular domains. In other (e.g. Met), we see
+		conservation of just the cytoplasmic kinase domain, with little or no
+		similarity in extra-cellular domain. This makes sense considering
+		human receptor kinases point inwards - into the intercellular space.
+		The majority of sponge cells point outwards - into the sea water the
+		sponge filters for nutrition (figure 2).</p>
+
+	<div class="row pagination-centered">
+		<p>
+			<img src="{% static 'colt/data/sponge/Receptors.png' %}"
+				alt="Some amphimedon queenslandica receptor tyrosine kinase domain structures"
+				id="Amphimedon Domains" align="middle" width="600" height="450">
+		</p>
+		<p>
+			<strong>Figure 2. Some <em>Amphimedon</em> receptor tyrosine
+				kinase domain structures
+			</strong>
+		</p>
+	</div>
+
+	<p>The kinome is still incomplete: Many predicted kinases were
+		fragmentary and mapped to internal gaps or contig ends. Other apparent
+		fragments map within gapless regions, but are difficult to assemble
+		due to the lack of close homologs, or possible assembly artefacts. We
+		used homology to improve many gene predictions, but have not attemped
+		to optimize using sponge paralogs, so many kinase sequences may still
+		be incorrect or incomplete. 23 fragments with greater than 95% amino
+		acid identity to other predictions that originated from short contigs
+		were removed as probable assembly errors.</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<!-- Resource -->
+<div class="row-fluid">
+	<h3>Resources</h3>
+	<p>
+		All sponge kinome sequences and classification are now available
+		through our <a href="{% url 'colt:kinbase' %}">KinBase</a> database,
+		along with domain structures and alignments.
+	</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+
+<!-- Acknowledgements -->
+<div class="row-fluid">
+	<h3>Acknowledgements</h3>
+	<p>The kinome analysis was lead by Michael Dacre and Gerard
+		Manning, with computational help from Yufeng Zhai and support from
+		other members of the Manning lab.</p>
+</div>
+<div class="row spacer-min"></div>
+		
+		
+{% endblock %}

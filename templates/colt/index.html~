@@ -1,0 +1,203 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Kinase.com{% endblock %}
+
+{% block content %}
+
+<!--  
+<div class="jumbotron">
+	<h3>Kinase.com <small>Genomics, evolution and function of protein kinases</small></h3>
+	<p><strong>kinase.com</strong> 
+	explores the functions, evolution and diversity of protein kinases, 
+	the key controllers of cell behavior. We focus on the kinome, the full 
+	complement of protein kinases in any sequenced genome. This includes our 
+	extensive KinBase database, and papers and supporting material for our 
+	published kinase work from <a HREF="http://en.wikipedia.org/wiki/SUGEN">Sugen</a> 
+	and the Salk Institute..
+</p>
+</div>
+-->
+
+<!-- About -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Introduction</h3>
+	</div>
+	<div class="panel-body">
+	<h3>Kinase.com <small>Genomics, evolution and function of protein kinases</small></h3>
+		<p>
+			<strong>Kinase.com</strong> 
+	explores the functions, evolution and diversity of protein kinases, 
+	the key controllers of cell behavior. We focus on the kinome, the full 
+	complement of protein kinases in any sequenced genome. This includes our 
+	extensive KinBase database, and papers and supporting material for our 
+	published kinase work from <a href="http://en.wikipedia.org/wiki/SUGEN">Sugen</a> 
+	and the Salk Institute. 
+		</p>
+	</div>
+</div>
+
+<!-- News -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">News</h3>
+	</div>
+	<div class="panel-body" id="news-panel-body">
+		<dl class="dl-horizontal">
+			<dt>Dec 6, 2012</dt>
+			<dd>Happy Birthday! The <a href="{% url 'colt:human_kinome' %}">human kinome paper</a> and poster are ten
+				years old today! The poster has had several print runs, totally over
+				100,000 and even part of the scenery of a Harrison Ford movie, while
+				the paper has hit <a href="http://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lq9duhsAAAAJ&pagesize=100&citation_for_view=Lq9duhsAAAAJ:u5HHmVD_uO8C">
+				over 3400 citations</a>.</dd>
+				
+			<dt>Aug 10, 2012</dt>
+			<dd>Publised a <a href="http://www.ncbi.nlm.nih.gov/pubmed/22900076">collaborative paper on FAM20C</a>, a
+				novel Golgi kinase that phosphorylates bone and tooth secreted
+				proteins. See our Wikikinome article on this newly-discovered family
+				of <a href="http://kinase.com/wiki/index.php/Kinase_Family_GASK">GASK kinases</a>.</dd>
+				
+			<dt>Feb 2012</dt>
+			<dd>New Wiki article on <a href="http://kinase.com/wiki/index.php/Kinase_Family_SCYL">SCYL</a>, one of the oddest
+				families of kinases - present in all eukaryotes, but catalytically
+				active in none. Up to recently, no known functions, but now
+				conserved functions in ER-Golgi and tRNA nuclear export are
+				emerging.</dd>
+		
+			<dt>Sep 2011</dt>
+			<dd>New articles on <a href="http://kinase.com/wiki">Wikinome</a> include profiles of three
+				enigmatic kinase classes that are ancient, but poorly understood in
+				any organism: the MAPK subfamily <a href="http://kinase.com/wiki/index.php/Kinase_Subfamily_ERK7">Erk7</a>
+				and the CDK-related kinases
+				<a href="http://kinase.com/wiki/index.php/Kinase_Family_CDKL">CDKL</a> and <a href="http://kinase.com/wiki/index.php/Kinase_Family_RCK">RCK</a>. 
+				RCK has two equally unusual subfamililes, <a href="http://kinase.com/wiki/index.php/Kinase_Subfamily_MAK">MAK</a> 
+				and <a href="http://kinase.com/wiki/index.php/Kinase_Subfamily_MOK">MOK</a>,
+				both associated with cilia.</dd>
+
+			<dt>Jul 2011</dt>
+			<dd>Our <a href="http://genomebiology.com/2011/12/7/R66/abstract">paper</a> on the <a href="{% url 'colt:giardia_kinome' %}">Giardia kinome</a> and the early
+				evolution of protein kinases published in Genome Biology.</dd>
+
+			<dt>Jun 2011</dt>
+			<dd>Update to our hyperbolic tree viewer 
+			<a href="{% url 'colt:hypertree' %}">Hypertree</a>.</dd>
+
+			<dt>Mar 2011</dt>
+			<dd>Kinome and kinase news now available through
+				Twitter: <a href="https://twitter.com/kinomics/">@kinomics</a>.</dd>
+
+			<dt>Feb 2011</dt>
+			<dd>Human and mouse kinome data in KinBase have been
+				updated with new atypical kinases, improved sequences and
+				classifications. Details to follow...</dd>
+
+			<dt>Oct 2010</dt>
+			<dd>The domain annotation of kinases is updated with
+				profiles for 21 new domains and subdomains, and a rebuild of all
+				kinase class-specific profiles.</dd>
+
+			<dt>Aug 2010</dt>
+			<dd>We now have HMM <a href="{% url 'colt:logos' %}">Sequence Logos</a> to display
+				conservation patterns for every kinase group, family, and subfamily.
+				Update: we're working to restore the Logo comparison tool that
+				allows definition of class-specific conservation patterns.</dd>
+
+			<dt>Aug 2010</dt>
+			<dd>The <a href="{% url 'colt:sponge_kinome' %}">sponge kinome</a> provides a remarkable picture of
+				the emergence of massive kinase complexity in early animal
+				development, including the first occurrence of human-style tyrosine
+				kinases and many other key control pathways.</dd>
+
+			<dt>June 2010</dt>
+			<dd>A detailed kinome search of the <a href="{% url 'colt:fungi_coprinopsis_kinome' %}">mushroom</a>
+				(Coprinopsis cinerea) shows a massive expansion in novel kinase
+				families, and provides a distant fungal comparator for yeast
+				kinases.</dd>
+		</dl>
+	</div>
+</div>
+
+<!-- KinBase -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">KinBase</h3>
+	</div>
+	<div class="panel-body">
+		<p>
+			<a href="{% url 'colt:kinbase' %}">KinBase</a> holds information on over 3,000
+			protein kinase genes found in the genomes of human, and many other
+			sequenced genomes. You may <a
+				href="{% url 'colt:kinbase' %}">search</a> the database
+			by a variety of different gene names and accessions, or according to
+			the sequence based <a href="{% url 'colt:classification' %}">classification</a>.
+			KinBase can also be searched by <a
+				href="{% url 'colt:blast' %}">Blast</a>.
+		</p>
+	</div>
+</div>
+
+<!-- Vertebrate kinomes -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Vertebrate kinomes</h3>
+	</div>
+	<div class="panel-body">
+		<p>
+			These include the major analysis of the
+			<a href="{% url 'colt:human_kinome' %}">human kinome</a>, published in Science and a
+			more recent PNAS paper on the
+			<a href="{% url 'colt:mouse_kinome' %}">mouse</a> kinome and its comparison to human.
+		</p>
+	</div>
+</div>
+
+<!-- Model Organisms and Kinase Evolution -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Model Organisms and Kinase Evolution</h3>
+	</div>
+	<div class="panel-body">
+		<p>
+			We have also carried out kinome analyses of several important model
+			organisms: the nematode <a href="{% url 'colt:celegans_kinome' %}"><em>Caenorhabditis
+					elegans</em></a>, the fruit fly <a href="{% url 'colt:drosophila_kinome' %}"><em>Drosophila
+					melanogaster</em></a>, the yeast <a href="{% url 'colt:scerevisiae_kinome' %}"><em>Saccharomyces
+					cerevisiae</em></a>, the slime mold <a href="{% url 'colt:dictyostelium_kinome' %}"><em>Dictyostelium
+					discoideum</em></a> and the ciliate <a href="{% url 'colt:tetrahymena_kinome' %}"><em>Tetrahymena
+					thermophila</em></a>. Yeast and worm data were updated in a comparative <a
+				href="{% url 'colt:evolution' %}">Kinase Evolution</a> analysis published in TiBS,
+			and an update on nematode kinases, including those of <em>C.
+				briggsae</em>, has been published in <a
+				HREF="http://http://www.wormbook.org/">Wormbook</a>.
+		</p>
+		<p>
+			We have also recently completed a comprehensive analysis of a wide
+			variety of <a href="{% url 'colt:microbial_kinome' %}">microbial</a> kinases related to the
+			eukaryotic protein kinase family, using genomic and metagenomic
+			sequences.
+		</p>
+	</div>
+</div>
+
+<!-- Tools -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Tools</h3>
+	</div>
+	<div class="panel-body">
+		<p>
+			<a href="{% url 'colt:hypertree' %}">HyperTree</a> is
+			our tool to visualize large phylogenetic trees, using hyperbolic
+			("fish-eye") views and a unique branch length transform.
+		</p>
+		<p>
+			<a href="{% url 'colt:logos' %}">Sequence Logos</a> show HMM profiles as graphical
+			logos and allow alignment, calculation, and manipulation of these
+			logos.
+		</P>
+	</div>
+</div>
+
+{% endblock %}

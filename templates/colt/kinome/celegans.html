@@ -1,0 +1,138 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Caenorhabditis elegans Kinome{% endblock %}
+{% block meta-description%}
+<meta name="description" content = "Detailed analysis of Caenorhabditis elegans kinome, it's full complement of protein kinases">
+{% endblock %}
+{% block meta-keywords %}
+<meta name="keywords" content="kinase, protein kinase, kinome, signal transduction, phosphorylate, phosphorylation, kinases, protein kinases, receptor, cytoplasmic, signaling, signalling, intracellular, model organism,  gene, sequence, protein, tyrosine kinase, serine, threonine, tyrosine, kinome, genomic, genome, database, Caenorhabditis elegans, nematode">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered"><em>Caenorhabditis elegans</em> Kinome</h3>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	The nematode <em>C. elegans</em> provides a powerful system for the study
+	of protein kinases, as the first sequenced multicellular genome, with a
+	wealth of genetics and genomics tools and data. Its evolutionary
+	position provides important information on the evolution of kinases in
+	multicellular animals, and the sequencing of additional nematode
+	genomes promises additional sequence-function discoveries.
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<p><strong>Update 2006</strong>: revision and analysis of the kinases of
+	C. elegans, and a preliminary analysis of the C. briggsae kinome has
+	been published in Wormbook:</p>
+	<blockquote>
+			<p>
+				<strong>Genomic Overview of Protein Kinases.</strong>
+			</p>
+			<p class="medium-font">G. Manning (2005)</p>
+		<p class="medium-font">
+			<em><a href="http://www.wormbook.org">Wormbook</a></em>, ed. The <em>C. elegans</em> Research Community,
+			Wormbook, doi/10.1895/wormbook.1.60.1, 
+			(<a href="http://www.wormbook.org/chapters/www_genomicoverviewkinases/genomicoverviewkinases.html">HTML</a>,
+			<a href="http://www.wormbook.org/chapters/www_genomicoverviewkinases/genomicoverviewkinases.pdf">PDF</A>)
+		</p>
+	</blockquote>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<p>Our analysis of the C. elegans kinome was first published in PNAS:</p>
+	<blockquote>
+			<p>
+				<strong>The protein kinases of Caenorhabditis elegans: a model for signal transduction in multicellular organisms.</strong>
+			</p>
+			<p class="medium-font">GD Plowman, S Sudarsanam, J Bingham, D Whyte, T Hunter (1999).</p>
+		<p class="medium-font">
+			PNAS <strong>96</strong> (24) 13603-10. (<a
+				href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=10570119&query_hl=3">Medline
+				Abstract</a>, <a
+				href="http://www.pnas.org/cgi/reprint/96/24/13603">PDF full text</a>)
+		</p>
+	</blockquote>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<p>Improvements in gene prediction, classification and biological
+		understanding have lead to re-analyses, including the TiBS <a href="{% url 'colt:evolution' %}">kinase evolution</a> 
+		paper, and the WormBook paper cited above. A paper on the
+		informatics behind the C. elegans kinome discovery has also been
+		published:</p>
+	<blockquote>
+			<p>
+				<strong>Informatics issues in large-scale sequence analysis: elucidating the protein kinases of C. elegans.</strong>
+			</p>
+			<p class="medium-font">J Bingham, GD Plowman, S. Sudarsanam (2000).</p>
+		<p class="medium-font">
+			J. Cell Biochem <strong>80</strong> (2) 181-6. (<a
+				href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=11074585&query_hl=3">Medline
+				Abstract</a>, <a
+				href="http://www3.interscience.wiley.com/cgi-bin/fulltext/73505455/PDFSTART">PDF
+				full text</a>)
+		</p>
+	</blockquote>
+</div>
+
+<div class="row-fluid spacer"></div>
+
+<div class="row-fluid">
+  <h3>Tables and figures</h3>
+  <p>The tables and figures below provide tabular and graphical summaries of the results from the original PNAS paper.</p>
+	<h4>Tables</h4>
+	<ul>
+		<li><em>C. elegans</em> protein 
+		  <a href="{% static "colt/data/celegans/worm_kinase.xls" %}">kinases</a>
+		 (<a href="{% static "colt/data/celegans/worm_kinase.xls" %}">Excel97</a>)
+		 </li>
+		<li><em>C. elegans</em> protein 
+		  <a href="{% static "colt/data/celegans/worm_ptp_112399.htm" %}">phosphatases</a>
+		 (<a href="{% static "colt/data/celegans/Worm_PTP_112399.xls" %}">Excel97</a>)
+		</li>
+		<li><em>C. elegans</em> phosphoprotein 
+		  <a href="{% static "colt/data/celegans/Worm_ppbd_112399.htm" %}">phosphatases</a>
+		 (<a href="{% static "colt/data/celegans/worm_ppbd_112399.xls" %}">Excel97</a>)
+		</li>
+		<li>Summary of <em>C. elegans</em> phosphoprotein 
+		<a href="{% static "colt/data/celegans/worm_sum_112399.htm" %}">phosphatases</a>
+		 (<a href="{% static "colt/data/celegans/worm_sum_112399.xls" %}">Excel97</a>)
+        </li>
+	</ul>
+
+	<h4>Figures</h4>
+	<ul>
+		<li><a href="{% static "colt/data/celegans/worm_anchor.pdf" %}">Anchored dendrogram</a> of <i>C.
+				elegans</i> protein kinases</li>
+		<li><a href="{% static "colt/data/celegans/worm_unroot2.pdf" %}">Unanchored dendrogram</a> of <i>C.
+				elegans</i> protein kinases</li>
+		<li><a href="{% static "colt/data/celegans/worm_hyper1.pdf" %}">Hyperbolic tree view 1</a> of <i>C.
+				elegans</i> protein kinases</li>
+		<li><a href="{% static "colt/data/celegans/worm_hyper2.pdf" %}">Hyperbolic tree view 2</a> of <i>C.
+				elegans</i> protein kinases</li>
+		<li><a href="{% url 'colt:hypertree' %}">Interactive</a> tree viewer
+			for <i>C. elegans</i> protein kinases</li>
+		<li><i>C. elegans</i> and mammalian <a href="{% static "colt/data/celegans/WormTK_112399.pdf" %}">receptor
+				tyrosine kinases</a></li>
+		<li><a href="{% static "colt/data/celegans/worm_kinase_map1.pdf" %}">Chromosomal distribution</a>
+			of <i>C. elegans</i> protein kinases <a
+				href="{% static "colt/data/celegans/worm_kinase_map1.xls" %}">(Excel97)</a>
+		</li>
+
+	</ul>
+</div>
+
+{% endblock %}

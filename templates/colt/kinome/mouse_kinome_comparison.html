@@ -1,0 +1,352 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}The Mouse Kinome: Comparison to Forrest et al.{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">The Mouse Kinome: Comparison to Forrest et al.</h3>
+</div>
+
+<!-- Introduction -->
+<div class="row-fluid">
+	<p>
+		A recent paper by <a
+			href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=http:%2F%2Fwww.ncbi.nlm.nih.gov%2Fentrez%2Fquery.fcgi%3Fcmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=12819143">Forrest
+			et al</a> also provides a catalog of mouse protein kinases as part of a
+		'phosphatome' (protein kinases + protein phosphatases) analysis .
+		Their catalog lists 561 sequences as protein kinases. We attempted to
+		obtain representative sequences for each of their kinase predictions
+		and compared them to the kinome catalog to determine overlap and
+		reasons for discrepancies.
+	</p>
+	<p>There are 481 loci in common between the two gene sets. Genes
+		found only in our work inlude most atypical kinases, several divergent
+		kinases, a few of the MARK family expansions and a scattering of other
+		kinases. Sequences found only in the Forrest et al paper include 13
+		sequences that we classify as psuedogenes, 32 sequences that duplicate
+		previously-counted genes, and 36 additional sequences that do not
+		appear to have clear kinase sequence homology. Some do have matches to
+		the ProSite kinase domain motif (PS00107), which is known to suffer
+		from some false positive predictions. Here are the details:</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<!-- 36 sequences found only in Forrest et al -->
+<div class="panel panel-info">
+	<!-- Default panel contents -->
+	<div class="panel-heading"><h5>36 sequences found only in Forrest et
+		al</h5></div>
+	<div class="panel-body">
+      We have not been able to find any connection between these sequences and known or predicted protein kinases.
+    </div>
+	<!-- Table -->
+	<table class="table table-condensed">
+		<tr>
+			<td>CEPK556</td>
+			<td>CEPK45</td>
+			<td>CEPK551</td>
+			<td>CEPK553</td>
+			<td>CEPK521</td>
+			<td>CEPK555</td>
+		</tr>
+		<tr>
+			<td>CEPK489</td>
+			<td>CEPK462</td>
+			<td>CEPK500</td>
+			<td>CEPK490</td>
+			<td>CEPK527</td>
+			<td>CEPK547</td>
+		</tr>
+		<tr>
+			<td>CEPK381</td>
+			<td>CEPK499</td>
+			<td>CEPK472</td>
+			<td>CEPK529</td>
+			<td>CEPK561</td>
+			<td>CEPK560</td>
+		</tr>
+		<tr>
+			<td>CEPK559</td>
+			<td>CEPK503</td>
+			<td>CEPK530</td>
+			<td>CEPK525</td>
+			<td>CEPK550</td>
+			<td>CEPK524</td>
+		</tr>
+		<tr>
+			<td>CEPK141</td>
+			<td>CEPK523</td>
+			<td>CEPK168</td>
+			<td>CEPK82</td>
+			<td>CEPK458</td>
+			<td>CEPK549</td>
+		</tr>
+		<tr>
+			<td>CEPK101</td>
+			<td>CEPK269</td>
+			<td>CEPK533</td>
+			<td>CEPK498</td>
+			<td>CEPK534</td>
+			<td>CEPK528</td>
+		</tr>
+	</table>
+</div>
+
+<!-- Multiple phosphatome sequences matching a single kinome sequence -->
+<div class="panel panel-info">
+	<!-- Default panel contents -->
+	<div class="panel-heading"><h5>Multiple phosphatome sequences matching a single kinome sequence</h5></div>
+	<div class="panel-body">
+      57 phosphatome sequences collapse into 25 kinome genes:
+    </div>
+	<!-- Table -->
+	<table class="table table-condensed">
+		<th>Kinome</th>
+		<th>Phosphatome</th>
+		<tr>
+			<td>AMPKa2</td>
+			<td>CEPK109, CEPK108, CEPK107, CEPK552</td>
+		</tr>
+		<tr>
+			<td>MarkmC1</td>
+			<td>CEPK136, CEPK137, CEPK138</td>
+		</tr>
+		<tr>
+			<td>ULK1</td>
+			<td>CEPK157, CEPK158, CEPK160</td>
+		</tr>
+		<tr>
+			<td>ULK4</td>
+			<td>CEPK183, CEPK184</td>
+		</tr>
+		<tr>
+			<td>PKG1</td>
+			<td>CEPK27, CEPK491</td>
+		</tr>
+		<tr>
+			<td>NRBP2</td>
+			<td>CEPK492, CEPK493</td>
+		</tr>
+		<tr>
+			<td>PKG2</td>
+			<td>CEPK28, CEPK522</td>
+		</tr>
+		<tr>
+			<td>EphA10</td>
+			<td>CEPK379, CEPK382</td>
+		</tr>
+		<tr>
+			<td>ANPb</td>
+			<td>CEPK455, CEPK456</td>
+		</tr>
+		<tr>
+			<td>CDK10</td>
+			<td>CEPK466, CEPK468</td>
+		</tr>
+		<tr>
+			<td>CLK2</td>
+			<td>CEPK440, CEPK442</td>
+		</tr>
+		<tr>
+			<td>CRK7</td>
+			<td>CEPK479, CEPK481, CEPK482</td>
+		</tr>
+		<tr>
+			<td>DYRK1A</td>
+			<td>CEPK445, CEPK449</td>
+		</tr>
+		<tr>
+			<td>EphB1</td>
+			<td>CEPK378, CEPK386</td>
+		</tr>
+		<tr>
+			<td>Fused</td>
+			<td>CEPK46, CEPK501, CEPK502</td>
+		</tr>
+		<tr>
+			<td>GAK</td>
+			<td>CEPK483, CEPK484, CEPK485</td>
+		</tr>
+		<tr>
+			<td>HRI</td>
+			<td>CEPK509, CEPK510</td>
+		</tr>
+		<tr>
+			<td>IRAK3</td>
+			<td>CEPK470, CEPK473</td>
+		</tr>
+		<tr>
+			<td>MAST2</td>
+			<td>CEPK51, CEPK544</td>
+		</tr>
+		<tr>
+			<td>MASTL</td>
+			<td>CEPK47, CEPK48</td>
+		</tr>
+		<tr>
+			<td>MUSK</td>
+			<td>CEPK407, CEPK408</td>
+		</tr>
+		<tr>
+			<td>SgK495</td>
+			<td>CEPK148, CEPK545</td>
+		</tr>
+		<tr>
+			<td>skMLCK</td>
+			<td>CEPK174, CEPK71</td>
+		</tr>
+		<tr>
+			<td>smMLCK</td>
+			<td>CEPK177, CEPK299</td>
+		</tr>
+		<tr>
+			<td>TRKA</td>
+			<td>CEPK405, CEPK406</td>
+		</tr>
+	</table>
+</div>
+
+
+<!-- Phosphatome sequences which match kinome pseudogenes -->
+<div class="panel panel-info">
+	<!-- Default panel contents -->
+	<div class="panel-heading"><h5>Phosphatome sequences which match kinome pseudogenes</h5></div>
+	<div class="panel-body">
+11 phosphatome sequences match kinase pseudogenes, and a futher two match 'rs' sequences that are likely pseudogenes and classified as such in our analysis.
+    </div>
+	<!-- Table -->
+	<table class="table table-condensed">
+		<th>Phosphatome</th>
+		<th>Kinome</th>
+		<tr>
+			<td>CEPK123</td>
+			<td>MarkmB2ps</td>
+		</tr>
+		<tr>
+			<td>CEPK221</td>
+			<td>CDK8ps</td>
+		</tr>
+
+		<tr>
+			<td>CEPK18</td>
+			<td>PKCeps</td>
+		</tr>
+
+		<tr>
+			<td>CEPK44</td>
+			<td>ROCK1ps</td>
+		</tr>
+
+		<tr>
+			<td>CEPK134</td>
+			<td>MarkmDps1</td>
+		</tr>
+
+		<tr>
+			<td>CEPK460</td>
+			<td>CDK4ps1</td>
+		</tr>
+
+		<tr>
+			<td>CEPK461</td>
+			<td>CDK6ps2</td>
+		</tr>
+
+		<tr>
+			<td>CEPK132</td>
+			<td>MarkmDps4</td>
+		</tr>
+
+		<tr>
+			<td>CEPK463</td>
+			<td>CDK4ps4</td>
+		</tr>
+
+		<tr>
+			<td>CEPK467</td>
+			<td>CDK10ps</td>
+		</tr>
+
+		<tr>
+			<td>CEPK465</td>
+			<td>CDK3ps</td>
+		</tr>
+
+		<tr>
+			<td>CEPK121</td>
+			<td>MarkmB1-rs</td>
+		</tr>
+
+		<tr>
+			<td>CEPK37</td>
+			<td>NDR2-rs</td>
+		</tr>
+	</table>
+</div>
+
+	
+
+
+<!-- 59 kinases found in our work but not by Forrest -->
+<div class="panel panel-info">
+	<!-- Default panel contents -->
+	<div class="panel-heading"><h5>59 kinases found in our work but not by Forrest</h5></div>
+	<!-- Table -->
+	<table class="table table-condensed">
+		<th>Class</th>
+		<th>Genes</th>
+		<tr>
+			<td>Atypical: A6 family</td>
+			<td>A6, A6r</td>
+		</tr>
+		<tr>
+			<td>Atypical: ABC1 family</td>
+			<td>ADCK2, ADCK4, ADCK5</td>
+		</tr>
+		<tr>
+			<td>Atypical: Alpha Kinase family</td>
+			<td>AlphaK1, AlphaK2, AlphaK3, ChaK1, ChaK2, eEF2K</td>
+		</tr>
+		<tr>
+			<td>Atypical: BRD family</td>
+			<td>BRD2, BRD3, BRD4, BRDT</td>
+		</tr>
+		<tr>
+			<td>Atypical: PDHK family</td>
+			<td>PDHK1, PDHK2, PDHK3, PDHK4, BCKDK</td>
+		</tr>
+		<tr>
+			<td>Atypical: RIOK family</td>
+			<td>RIOK2, RIOK3</td>
+		</tr>
+
+		<tr>
+			<td>Atypical: TIF1 family</td>
+			<td>TIF1a, TIF1b, TIF1g</td>
+		</tr>
+		<tr>
+			<td>Atypical: PIKK family</td>
+			<td>ATM, ATR, DNAPK, FRAP, SMG1, TRRAP</td>
+		</tr>
+		<tr>
+			<td>Atypical: Various</td>
+			<td>BCR, FASTK, G11, H11, TAF1</td>
+		</tr>
+		<tr>
+			<td>CAMK:CAMKL:MARK subfamily</td>
+			<td>MarkmA4, MarkmA6, MarkmA7, MarkmA10, MarkmA12, MarkmB2,
+				MarkmC2, MarkmD1, MarkmD4, MarkmE1, MarkmE3</td>
+		</tr>
+		<tr>
+			<td>ePK: Various</td>
+			<td>AAK1, AMPKa1, AurC, Dyrk2, EphA6, Myo3B, SgK071, SgK085,
+				SgK110, SgK424, SgK493</td>
+		</tr>
+	</table>
+</div>
+
+{% endblock %}

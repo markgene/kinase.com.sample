@@ -1,0 +1,86 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}The Mushroom Kinome{% endblock %}
+{% block meta-description%}
+<meta name="description" content = "Catalog and analysis of the protein kinases within the genome of Dictyostelium discoideum, a simple model organism slime mold">
+{% endblock %}
+{% block meta-keywords %}
+<meta name="keywords" content="dicty, dictyostelium, discoideum, slime, mold, mould, dictybase, kinase, protein kinase, kinome, signal transduction, phosphorylate, phosphorylation, kinases, protein kinases, receptor, cytoplasmic, signaling, signalling, intracellular, model organism, gene, sequence, protein, tyrosine kinase, serine, threonine, tyrosine, kinome, genomic, genome, database">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">The Dictyostelium Kinome</h3>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<p>
+		<i>Dictyostelium discoideum</i> is a simple model organism that
+		diverged from the animal lineage after the split from plants, but
+		before fungi. As a largely single-celled organism that forms
+		multicellular fruiting bodies, it is fascinating both for its
+		evolutionary position, as well as being a simple model to study
+		intercellular communiation and co-ordination, movemenent and
+		development.
+	</p>
+	<p>In March 2006, we published a detailed analysis of the kinome of
+		Dictyostelium (known affectionately as 'Dicty'), as a collaboration
+		between the Boston Biomedical Research Institute (BBRI) and the Salk
+		Institute, with help from the Dictybase database:</p>
+	<div class="row fluid">
+		<div class="col-md-10">
+			<blockquote>
+				<p>
+					<strong>The dictyostelium kinome-analysis of the protein kinases from a simple model organism
+					</strong>
+				</p>
+				<p class="medium-font">JM Goldberg, G Manning, A Liu, P Fey, KE Pilcher, Y Xu, JL Smith (2006)</p>
+				<p class="medium-font">
+					PLoS Genet. Mar <B>2</B> (3) e38 (<a
+						href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=16596165&query_hl=1&itool=pubmed_docsum">Medline</a>,
+							<a
+							href="http://genetics.plosjournals.org/perlserv/?request=get-document&doi=10.1371/journal.pgen.0020038">full
+								text</a>, <a
+							href="http://genetics.plosjournals.org/archive/1553-7404/2/3/pdf/10.1371_journal.pgen.0020038-L.pdf">PDF</a>)
+					
+				</p>
+			</blockquote>
+		</div>
+	</div>
+
+	<p>
+		In brief, Dicty has 285 protein kinases, a similar proportion of the
+		genome as several other eukaryotes. Surprisingly, it has members of 24
+		subfamilies (<a
+			href="http://genetics.plosjournals.org/perlserv/?request=slideshow&type=table&doi=10.1371/journal.pgen.0020038&id=6325">Table
+			1</a>) not found in yeast, even though Dictyostelium is more
+		evolutionarily divergent than fungi. This suggests that these kinases
+		were present in very early eukaryotes, but lost from fungi, due to
+		their simpler lifestyle.
+	</p>
+
+	<p>While Dicty, like yeast, lacks the tyrosine kinase (TK) group,
+		it has a greatly expanded TKL (tyrosine kinase like) group, which for
+		the first time includes kinases that have been shown to have tyrosine
+		kinase activity, and include putative receptor tyrosine kinases. This
+		suggests that the sequence and structural similarities between TK and
+		TKL may have a functional basis (ability to phosphorylate tyrosine)
+		and an evolutionary basis, where the TK group may have evolved from
+		the ancient TKL group.</p>
+	<p>
+
+		Dictyostelium shines light on several other aspects of kinase
+		evolution and function, and also raises many new questions - check out
+		the full paper if you are interested. The supporting data is now also
+		available through our <a href="{% url 'colt:kinbase' %}">KinBase</a> database.
+	</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+{% endblock %}

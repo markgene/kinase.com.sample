@@ -1,0 +1,19 @@
+{% extends "colt/base.html" %} 
+{% load static from staticfiles %} 
+
+{% block title %}{{ title }}{% endblock %} 
+
+{% block content %}
+
+<div class="row pagination-centered">
+<iframe src="{{ url }}" seamless width="800" height="800" class="pagination-centered">
+  <p>Your browser does not support iframes. View original page at <a href="{{ url }}">here</a>.</p>
+</iframe>
+</div>
+<div class="row spacer-min"></div>
+<small>(<a href="{{ url }}">Source page</a> of the frame)</small>
+</div>
+
+{% endblock %}
+
+

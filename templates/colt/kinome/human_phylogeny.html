@@ -1,0 +1,73 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Kinase Phylogeny{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <h3 class="pagination-centered">Structure and phylogeny of the protein kinases</h3>
+</div>
+
+<div class="row">
+  Most protein kinases contain a conserved catalytic domain belonging to the eukaryotic protein kinase (ePK) 
+  superfamily (all other protein kinases are classified as atypical protein kinases, or aPKs). ePKs are 
+  classified into 7 major groups, and are subdivided into families, and sometimes subfamilies, based on 
+  the sequence of their ePK domains. To look at the structure of the groups, here are alignment 
+  and phylogenetic trees for the major groups. Alignments may be viewed with programs such as ClustalW, 
+  BioEdit or Belview; Trees may be viewed with programs such as TreeView or 
+  <a href="/tools/HyperTree.html">HyperTree</a>. 
+  The tree.pdf files are one-page images of the trees in Adobe Acrobat format.
+  <div class="row spacer-min"></div>
+<ul>
+  <li><strong>AGC</strong> kinases
+    (<a href="{% static "colt/data/human/kinome/groups/agc.aln" %}">alignment</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/agc.ph" %}">tree</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/agc.pdf" %}">tree.pdf</a>) 
+  </li>
+   
+  <li><strong>CAMK</strong> kinases
+    (<a href="{% static "colt/data/human/kinome/groups/camk.aln" %}">alignment</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/camk.ph" %}">tree</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/camk.pdf" %}">tree.pdf</a>) 
+  </li>
+  
+  <li><strong>CMGC</strong> kinases
+    (<a href="{% static "colt/data/human/kinome/groups/cmgc.aln" %}">alignment</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/cmgc.ph" %}">tree</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/cmgc.pdf" %}">tree.pdf</a>) 
+  </li>
+  
+  <li><strong>CK1</strong> kinases
+    (<a href="{% static "colt/data/human/kinome/groups/ck1.aln" %}">alignment</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/ck1.ph" %}">tree</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/ck1.pdf" %}">tree.pdf</a>) 
+  </li>
+  
+  <li><strong>STE</strong> kinases
+    (<a href="{% static "colt/data/human/kinome/groups/ste.aln" %}">alignment</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/ste.ph" %}">tree</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/ste.pdf" %}">tree.pdf</a>) 
+  </li>
+  
+  <li><strong>TK</strong> kinases
+    (<a href="{% static "colt/data/human/kinome/groups/tk.aln" %}">alignment</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/tk.ph" %}">tree</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/tk.pdf" %}">tree.pdf</a>) 
+  </li>
+  
+  <li><strong>TKL</strong> kinases
+    (<a href="{% static "colt/data/human/kinome/groups/tkl.aln" %}">alignment</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/tkl.ph" %}">tree</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/tkl.pdf" %}">tree.pdf</a>) 
+  </li>
+  
+  <li><strong>All ePK</strong> kinases
+    (<a href="{% static "colt/data/human/kinome/groups/ePK.aln" %}">alignment</a>, 
+    <a href="{% static "colt/data/human/kinome/groups/ePK.ph" %}">tree</a>) 
+  </li>
+</ul>
+</div>
+
+{% endblock %}

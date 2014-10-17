@@ -1,0 +1,113 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Mouse Kinome{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">Mouse Kinome</h3>
+</div>
+
+<!-- Citation -->
+<div class="row-fluid">
+	<p>These pages support our 2004 publication of the mouse kinome
+		(the set of all mouse protein kinases) and its comparison to the human
+		kinome:</p>
+
+	<blockquote>
+		<p>
+			<strong>The mouse kinome: Discovery and comparative genomics
+				of all mouse protein kinases.</strong>
+		</p>
+		<p class="medium-font">S Caenepeel, G Charydczak, S Sudarsanam, T
+			Hunter and G Manning (2004).</p>
+		<p class="medium-font">
+			PNAS <strong>101</strong>(32) 11707-11712
+		</p>
+	</blockquote>
+
+	<p>
+		PNAS have kindly allowed us to make the paper available to download as
+		a <a href="{% static 'colt/data/mouse/PNAS_mouse_kinome.pdf' %}">PDF file</a>. The paper is also
+		available from the <a
+			href="http://www.pnas.org/cgi/content/abstract/0306880101v1?view=abstract">PNAS
+			website</a>.
+	</p>
+	<p>
+		All mouse sequences and classification are now available through our <a
+			href="{% url 'colt:kinbase' %}">KinBase</a> database, 
+			where dynamic alignments with human orthologs and other kinases can be carried out.
+	</p>
+
+	<p>
+	A related analysis of mouse kinases and phosphatases has been published by <a
+			href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=12819143&query_hl=10">Forrest et al</a>. 
+			We have looked at reasons for the <a
+			href="{% url 'colt:mouse_kinome_comparison' %}">differences between the two gene sets</a>.
+		</p>
+</div>
+
+<div class="row fluid spacer-min"></div>
+
+
+<div class="row-fluid">
+	<h3>Supplemental Tables</h3>
+	Here are the supplemental tables to accompany the paper in Excel and
+	tab-delimited formats:
+
+	<ul>
+		<li><strong>Table 2: Kinase sequence, classification and
+				annotation. </strong> Gene names are in accordance with the human kinome
+			nomenclature (http://kinase.com) where possible. Pseudogenes are
+			named after their parental gene, followed by the suffix 'ps' (or
+			'ps1', 'ps2'... for multiples). Where a single parent is not obvious,
+			they are named after their family classification. Names beginning
+			with z are entries for the second domain of a dual-domain kinase. The
+			suffix -rs ('related sequence') denotes a recent processed gene copy
+			that is likely to be a pseudogene but has not yet developed stops or
+			frameshifts in the ORF. mSK# is the KinBase kinase accession code.
+			N/A denotes Not Applicable. Full length status is based on protein
+			sequence comparison with the human ortholog. (<a href="{% static "colt/data/mouse/tables/Table2.xls" %}">Excel</a>,
+			<a href="{% static "colt/data/mouse/tables/Table2.txt" %}">Text</a>)
+
+		</li>
+		<li><strong>Table 3: Coverage of kinase sequences in
+				draft mouse genome. </strong>Separate columns note whether either end of the
+			predicted cDNA sequence fails to align to the genome, by Blat or
+			Blast, and whether there are internal gaps in the alignment (<a
+			href="{% static "colt/data/mouse/tables/Table3.xls" %}">Excel</a>, <a
+			href="{% static "colt/data/mouse/tables/Table3.txt" %}">Text</a>)</li>
+		<li><strong>Table 4: Human-mouse kinase domain
+				conservation, by family. </strong>Orthologous domain identities from Table 2
+			were combined by family classification. Mean, maximum and minimum
+			percentage identities are reported. (<a href="{% static "colt/data/mouse/tables/Table4.xls" %}">Excel</a>,
+			<a href="{% static "colt/data/mouse/tables/Table4.txt" %}">Text</a>)
+		</li>
+		<li><strong>Table 5: Species-specific indels in mouse-human kinase
+			alignments. </strong>Mouse and human protein sequences were aligned, and all terminal and internal gaps noted. Gaps of &gt;4 AA are reported separately, as being unlikely to be due to alignment errors. It is noted where mouse-specific insertions were later matched with human genomic sequence to extend the human kinase ORF.
+			 (<a
+			href="{% static "colt/data/mouse/tables/Table5.xls" %}">Excel</a>, 
+			<a href="{% static "colt/data/mouse/tables/Table5.txt" %}">Text</a>) </li>
+		<li><strong>Table 6: Predictions of catalytically inactive mouse kinase
+			domains. </strong>Sequences of the VAIK, HRD and DFG motifs were derived from HMM alignment and manually edited multiple sequence alignment. The presence of the catalytic residue (K, D, D) in each case is noted.
+			 (<a
+			href="{% static "colt/data/mouse/tables/Table6.xls" %}">Excel</a>, 
+			<a href="{% static "colt/data/mouse/tables/Table6.txt" %}">Text</a>)</li>
+		<li><strong>Table 7: Mouse kinase pseudogenes. </strong> Details of the 97 confirmed mouse pseudogenes. Gene structure notes whether the sequence has introns, or non-intronic repeat sequences which disrupt the pseudogene. The Processed Status column refers to whether the gene is known to be retrotransposed with all introns excised ('Fully processed'), some introns excised, or derived from chromosomal duplication, with no exons excised.
+		 (<a
+			href="{% static "colt/data/mouse/tables/Table7.xls" %}">Excel</a>, 
+			<a href="{% static "colt/data/mouse/tables/Table7.txt" %}">Text</a>)</li>
+		
+		<li><strong>Table 8: Mouse kinase mutations from MGI database. </strong>Data from the MGI (http://www.informatics.jax.org) mouse mutation data mapped to protein kinases. Each line represents a mutant allele, with Sugen and Jackson gene names and Jackson Gene IDs. Each allele is identified by symbol, name, and molecular definition. Phenoslim IDs and descriptions provide a controlled vocabulary of major phenotypes and Jnum IDs refer to publications involving the allele.
+		 (<a
+			href="{% static "colt/data/mouse/tables/Table8.xls" %}">Excel</a>, 
+			<a href="{% static "colt/data/mouse/tables/Table8.txt" %}">Text</a>)</li>
+		
+		<li><strong>Tables 2-8 combined</strong>: (<a href="{% static "colt/data/mouse/tables/Table2-8.xls" %}">Excel</a>)</li>
+		
+	</ul>
+</div>
+
+{% endblock %}

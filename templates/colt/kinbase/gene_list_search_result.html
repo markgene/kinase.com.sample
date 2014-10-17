@@ -1,0 +1,253 @@
+{% extends "colt/base.html" %} 
+{% load static from staticfiles %} 
+{% block title %}KinBase: Kinase Database at Manning's Group{% endblock %} 
+
+{% block content %}
+
+{% if debug %}
+  debug={{ debug }}
+{% endif %}
+
+{% if page_header %}
+<!-- Page header -->
+<div class="page-header">
+	<h4 class="pagination-centered">{{ page_header }} ({{ genes|length }} genes)</h4>
+</div>
+{% endif %}
+
+{% if is_class %}
+
+<!-- Page header -->
+<div class="page-header">
+	<h4 class="pagination-centered">{{ search_field }} <strong>{{ search_value }}</strong></h4>
+</div>
+
+<!-- Kinase class information -->
+<div class="row">
+  <!-- Text -->
+  {% if klass.gain_loss_graph_filepath %}<div class="col-sm-7 col-md-7 col-lg-7">{% endif %}
+  <dl class="dl-horizontal">
+  <!-- Parent -->
+  {% if klass.parent_model %}
+      <dt>Sub-class of</dt> 
+      <dd>
+      <a href="{% url 'colt:kinbase_search_field' field=klass.parent_model.heirarchy value=klass.parent_model.name %}">{{ klass.parent_model.name }}</a> 
+      </dd>
+  {% endif %}
+    <div class="row-fluid spacer-xmin"></div>
+  
+  <!-- Children -->
+  {% if klass.child_models %}  
+      <dt>Parent of: </dt> 
+      <dd>
+      {% for c in klass.child_models %}        
+        <a href="{% url 'colt:kinbase_search_field' field=c.heirarchy value=c.name %}">{{ c.name }}</a>{% if not forloop.last %},{% endif %}
+      {% endfor %}
+      </dd>
+  {% endif %}
+    <div class="row-fluid spacer-xmin"></div>
+  
+  <!-- Description -->
+  {% if klass.description %}
+      <dt>Description: </dt> 
+      <dd>{{ klass.description }}</dd>
+  {% endif %}
+    <div class="row-fluid spacer-xmin"></div>
+  
+  <!-- Alignment -->
+      <dt>Alignment:</dt>
+      <dd> 
+      {% if klass.protein_alignment_filepath %}
+      <a href="{% url 'colt:kinbase_klass_alignment' field=klass.heirarchy value=klass.name alntype='protein' %}">Protein <span class="glyphicon glyphicon-picture"></span></a>
+        {% if verbose %}
+        <a href="{% static klass.protein_alignment_filepath %}"><span class="glyphicon glyphicon-download-alt"></span></a>
+        {% endif %}
+      {% endif %}
+      
+      
+      {% if klass.domain_alignment_filepath %}
+      <a href="{% url 'colt:kinbase_klass_alignment' field=klass.heirarchy value=klass.name alntype='domain' %}">Domain <span class="glyphicon glyphicon-picture"></span></a>
+      {% if verbose %}
+        <a href="{% static klass.domain_alignment_filepath %}"><span class="glyphicon glyphicon-download-alt"></span></a>
+      {% endif %}
+      {% endif %}
+      </dd>
+    <div class="row-fluid spacer-xmin"></div>
+  
+  <!-- Phylogeny -->
+      <dt>Phylogeny:</dt>  
+      <dd>
+      {% if klass.protein_phylogeny_filepath %}      
+        <a href="{% static klass.protein_phylogeny_filepath %}">Protein <span class="glyphicon glyphicon-download-alt"></span></a>
+      {% else %}  
+        Protein <span class="glyphicon glyphicon-download-alt gray"></span>
+      {% endif %}      
+      {% if klass.domain_phylogeny_filepath %}      
+        <a href="{% static klass.domain_phylogeny_filepath %}">Domain <span class="glyphicon glyphicon-download-alt"></span></a>
+      {% else %}
+        Domain <span class="glyphicon glyphicon-download-alt gray"></span>
+      {% endif %}
+      </dd>
+  <div class="row-fluid spacer-xmin"></div>
+  
+  <!-- HMM Logo -->
+      <dt>HMM Logo:</dt>
+      <dd>  
+      {% if klass.protein_hmm_png %}      
+        <a href="#" data-toggle="modal" data-target="#protein-hmm-png">Protein <span class="glyphicon glyphicon-picture"></span></a>
+      {% else %}
+         Protein <span class="glyphicon glyphicon-picture gray"></span>
+      {% endif %}
+      
+      {% if klass.KD_hmm_png %}      
+        <a href="#" data-toggle="modal" data-target="#domain-hmm-png">Domain <span class="glyphicon glyphicon-picture"></span></a>
+      {% else %}
+        Domain <span class="glyphicon glyphicon-picture gray"></span>
+      {% endif %}
+      </dd>
+  <div class="row-fluid spacer-xmin"></div>
+  
+  <!-- HMM File -->
+      <dt>HMM File:</dt>  
+      <dd>
+      {% if klass.protein_hmm_hmm %}      
+        <a href="{% static klass.protein_hmm_hmm %}">Protein <span class="glyphicon glyphicon-download-alt"></span></a>
+      {% else %}  
+        Protein <span class="glyphicon glyphicon-download-alt gray"></span>
+      {% endif %}
+      
+      {% if klass.KD_hmm_hmm %}      
+        <a href="{% static klass.KD_hmm_hmm %}">Domain <span class="glyphicon glyphicon-download-alt"></span></a>
+      {% else %}  
+        Domain <span class="glyphicon glyphicon-download-alt gray"></span>
+      {% endif %}
+      </dd>
+  <div class="row-fluid spacer-xmin"></div>
+  </dl>
+  {% if klass.gain_loss_graph_filepath %}</div>  {% endif %}
+  <!-- END of text -->
+    
+  <!-- Gain and loss graph if it has -->
+  {% if klass.gain_loss_graph_filepath %}
+  <div class="col-md-4 col-lg-4 col-sm-4">
+    <img src="{% static klass.gain_loss_graph_filepath %}" alt="Gains and losses of {{ klass.heirarchy }} {{ klass.name }}" class="img-thumbnail">
+    <p class="pagination-centered"><strong>Presence across species</strong></p>
+  </div> 
+  {% endif %}
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<hr />
+
+<div class="row-fluid pagination-centered">
+  <h4>Genes ({{ genes|length }})</h4>
+</div>
+
+<div class="row-fluid spacer-xmin"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="protein-hmm-png" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Protein HMM Logo of {{ klass.heirarchy }} {{ klass.name }}</h4>
+      </div>
+      <div class="modal-body">
+         <img src="{% static klass.protein_hmm_png %}" alt="HMM logo of {{ klass.heirarchy }} {{ klass.name }}" class="img-thumbnail">        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="domain-hmm-png" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Domain HMM Logo of {{ klass.heirarchy }} {{ klass.name }}</h4>
+      </div>
+      <div class="modal-body">
+         <img src="{% static klass.KD_hmm_png %}" alt="Domain logo of {{ klass.heirarchy }} {{ klass.name }}" class="img-thumbnail">        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+
+<form action="{% url 'colt:kinbase_process_sequence' %}" method="post">{% csrf_token %}
+
+<div class="row-fluid">
+<table class="table table-striped table-hover table-condensed" id="gene-list">
+	<thead>
+	  <tr>
+	    <th><input type="checkbox" id="all_genes" checked> Select</th>
+	    <th>Gene</th>
+	    <th>Species</th>
+	    <th>Classification</th>
+	    <th>Alias</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  {% for g in genes %}
+	  <tr>
+	    <td class="pagination-left"><input class="gene" name="gene_id" type="checkbox" id="{{ g.gene.id }}" value="{{ g.gene.id }}" checked></td>
+	    <td><a href="{% url 'colt:kinbase_gene_detail' g.id %}">{{ g.gene.name }}</a></td>
+	    <td>{{ g.species.name }}</td>
+	    <td>
+	    {% if g.group %}<a href="{% url 'colt:kinbase_search_field' field='Group' value=g.group %}">{{ g.group }}</a>{% endif %}
+	    {% if g.family %}: <a href="{% url 'colt:kinbase_search_field' field='Family' value=g.family %}">{{ g.family }}</a>{% endif %}
+	    {% if g.subfamily %}: <a href="{% url 'colt:kinbase_search_field' field='Subfamily' value=g.subfamily %}">{{ g.subfamily }}</a>{% endif %}	    
+	    </td>
+	    <td>{{ g.alias|join:", "}}</td>
+	  </tr> 
+	  {% endfor %}
+	</tbody>
+</table>
+</div>
+
+<!-- Service -->
+<div class="row-fluid pagination-centered">
+  <input class="btn btn-info btn-sm" type="submit" name="service" value="Retrieve Protein" />
+  <input class="btn btn-info btn-sm" type="submit" name="service" value="Retrieve RNA" />
+  <input class="btn btn-info btn-sm" type="submit" name="service" value="Retrieve Kinase Domain" />
+
+  <input class="btn btn-success btn-sm" type="submit" name="service" value="Align Protein" />
+  <input class="btn btn-success btn-sm" type="submit" name="service" value="Align RNA" />
+  <input class="btn btn-success btn-sm" type="submit" name="service" value="Align Kinase Domain" />
+</div>
+
+<div class="row-fluid spacer-xmin"></div>
+
+<div class="row-fluid pagination-centered">
+  <input class="btn btn-primary btn-sm" type="submit" name="service" value="View Domains" />
+</div>
+
+</form>
+
+<div class="row-fluid spacer"></div>
+
+{% endblock %}
+
+{% block select_all %}
+<script>
+$(document).ready(function(){ 
+    $('#all_genes').click(function() {
+        var $checkboxes = $(document).find('input[type=checkbox].gene');
+        $checkboxes.prop('checked', $(this).is(':checked'));
+    });     
+});
+</script>
+
+{% endblock %}

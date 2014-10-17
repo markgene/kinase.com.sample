@@ -1,0 +1,156 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Human Kinome{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">Human Kinome</h3>
+</div>
+
+<!-- Citation -->
+<div class="row fluid">
+	<div class="col-md-2">
+		<img src="{% static 'colt/img/kinome_STKE.gif' %}"
+			alt="human kinome tree" class="img-thumbnail">
+	</div>
+
+	<div class="col-md-10">
+		<p>These pages support the publication of our report of the full
+			complement of human protein kinases (the human kinome) in Science, on
+			Dec 6, 2002:</p>
+
+		<blockquote>
+			<p><strong>The Protein Kinase Complement of the Human Genome</strong></p>
+			<p class="medium-font">G Manning, DB Whyte, R Martinez, T Hunter, S Sudarsanam (2002).</p>
+			<p class="medium-font">Science <strong>298</strong>:1912-1934</p> 
+		</blockquote>
+		
+		<p>
+		  <a href=http://www.sciencemag.org/cgi/content/abstract/298/5600/1912>Science Abstract</a>, 
+		  <a href=http://www.eurekalert.org/pub_releases/2002-12/si-snr120302.php>Salk Institute Press Release</a>,
+		  and <a href="http://www.sciencemag.org/cgi/content/full/298/5600/1912?ijkey=AIiY..v41.pEY&keytype=ref&siteid=sci">
+		  free fulltext reprint</a> provided by Science.
+		</p>
+
+	</div>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<!-- Additional materials -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Additional material and links</h3>
+	</div>
+	<div class="panel-body">
+
+		<p>
+			A <a href="http://www.sciencemag.org/cgi/data/298/5600/1912/DC2/1">Human
+				Kinome poster</a> (1.9 Mb) accompanies the article, featuring a
+			dendrogram of human protein kinases (see picture above). You can
+			order a free printed copy from our colleagues at <a
+				href="http://www.cellsignal.com/ecommerce/orders/mailinglist.jsp">Cell
+				Signaling Technology</a>.
+		</p>
+		<p>
+			Science's <a
+				href="http://stke.sciencemag.org/cgi/content/full/sigtrans;2002/162/eg13">STKE</a>
+			has commentary and related articles in a special kinome issue.
+		</p>
+		<p>
+			The classification, annotation and sequences of human, fly, worm and
+			yeast kinases may now be explored through our <a href="{% url 'colt:kinbase' %}">KinBase</a>
+			database.
+		</p>
+		<p>
+			<a href="{% url 'colt:human_kinome_phylogeny' %}">Kinase Phylogeny</a> pages provide
+			alignments and phylogenetic trees to show how human kinases relate to
+			each other.
+		</p>
+		<p>
+			cDNA, protein and kinase domain sequences are available as <a
+				href="{% url "colt:static_directory" path='kinbase/FastaFiles' %}">FastA formatted text files</a>, and may
+			be searched using <a href="{% url 'colt:blast' %}">Blast</a>.
+		</p>
+		<p>
+			Supplementary material for the paper is available as a set of
+			compressed zip files at <a
+				href="http://www.sciencemag.org/cgi/content/full/298/5600/1912/DC1">Science</a>,
+			or as individual files here:
+		<ul>
+			<li>Tables in Excel format: Tables <a href="{% static "colt/data/human/kinome/tables/Table S1.xls" %}">S1</a>, 
+			<a href="{% static "colt/data/human/kinome/tables/Table S2.xls" %}">S2</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S3.xls" %}">S3</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S4.xls" %}">S4</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S5.xls" %}">S5</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S6.xls" %}">S6</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S7.xls" %}">S7</a>
+			</li>
+			<li>Tables in tab-delimited text format: Tables <a href="{% static "colt/data/human/kinome/tables/Table S1.txt" %}">S1</a>, 
+			<a href="{% static "colt/data/human/kinome/tables/Table S2.txt" %}">S2</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S3.txt" %}">S3</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S4.txt" %}">S4</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S5.txt" %}">S5</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S6.txt" %}">S6</a>,
+			<a href="{% static "colt/data/human/kinome/tables/Table S7.txt" %}">S7</a>
+			</li>
+			<li><a href="{% static "colt/data/human/kinome/SOM_table_legends.pdf" %}">Table Legends</a> (PDF)</li>
+			<li><a href="{% static "colt/data/human/kinome/SOM_MnM.pdf" %}">Materials and Methods</a> (PDF)</li>
+			<li><a href="{% static "colt/data/human/kinome/SOM_aPK.pdf" %}">Notes on atypical protein kinase
+					(aPK) families</a> (PDF)</li>
+		</ul>
+		<p>
+			<strong>Update:</strong> (Nov 04): After the comparative analysis of mouse and
+			human kinases, we found several kinases which were active in mouse
+			but decayed to pseudogenes in human. For more information on these
+			and other recently deceased human genes, see the page on <a
+				href="{% url 'colt:human_kinome_psu' %}">gene death in the human
+				lineage</a>.
+				</p>
+		<p>
+
+			<strong>Update:</strong> (Dec 07): An updated <a href="{% static "colt/data/human/kinome/tables/Kincat_Hsap.08.02.xls" %}">table</a> (Excel) includes Gene
+			IDs, refseq accessions, HGNC names and improved sequences for some
+			kinases.
+			</p>
+	</div>
+</div>
+
+<!-- Previous analysis of mammalian kinases -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Previous analysis of mammalian kinases</h3>
+	</div>
+	<div class="panel-body">
+	
+	<p>Here are some slightly dated diagrams showing the domain structure of kinases and phostphatases (PDF format)</p>
+<ul>
+  <li>Mammalian <a href="{% static "colt/data/mammalian/rtks.pdf" %}">receptor tyrosine kinases</a></li>
+  <li>Mammalian <a href="{% static "colt/data/mammalian/ctks.pdf" %}">cytoplasmic tyrosine kinases</a></li>
+  <li>Mammalian <a href="{% static "colt/data/mammalian/ptps.pdf" %}">protein tyrosine phosphatases</a></li>
+</ul>
+
+
+
+<p>
+Here are other files made obsolete by our current analysis, retained for historical reasons:
+</p>
+<ul>
+  <li><a href="{% static "colt/data/mammalian/mam_dendro.pdf" %}">Unanchored dendrogram</a> of mammalian 
+    protein kinases. </li>
+  <li><a href="{% static "colt/data/mammalian/mam_anchor.pdf" %}">Anchored dendrogram</a> of mammalian 
+    protein kinases. </li>
+  <li><a href="{% static "colt/data/mammalian/mam_hyper.pdf" %}">Hyperbolic tree view</a> of mammalian 
+    protein kinases </li>
+  <li><a href="{% url 'colt:other__aur_kinases' %}">Table</a> of Aurora-family kinases <a href="{% static "colt/data/other/aurora_kinases.xls" %}">(Excel97)</a></li> 
+  <li><a href="{% static "colt/data/other/aur_tree.pdf" %}">Dendrogram</a> of Aurora-family kinases </li>
+  <li><a href="{% static "colt/data/other/aur_megalign.pdf" %}">Multiple alignment</a> of Aurora-family kinases </li>
+
+</ul>
+	
+	</div>
+</div>
+{% endblock %}

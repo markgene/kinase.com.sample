@@ -1,0 +1,227 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Tyrosine kinase signaling in the protist Monosiga{% endblock %}
+{% block meta-description%}
+<meta name="description" content = "A single-celled organism contains the most elaborate inter-cellular signaling system ever seen, based on tyrosine kinase signaling">
+{% endblock %}
+{% block meta-keywords %}
+<meta name="keywords" content="kinase, protein kinase, kinome, signal transduction, phosphorylate, phosphorylation, kinases, protein kinases, receptor, cytoplasmic, signaling, signalling, intracellular,  gene, sequence, protein, tyrosine kinase, tyrosine, kinome, genomic, genome, database, Monosiga, brevicollis, choanoflagellate, metazoan, ovata, proterospongia">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">Genome Surprises: An elaborate intercellualar signaling network in a unicellular organism</h3>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<p>
+		While protein kinases are found in all branches of life, <a
+			HREF="http://en.wikipedia.org/wiki/Tyrosine_kinase">tyrosine
+			kinases</a> were until recently found only in multicellular animals. That
+		made sense, since they are mostly concerned with signaling and
+		co-ordination <em>between</em> cells. However, as a relatively recent
+		innovation, this deprived us of simple model systems or the ability to
+		compare widely divergent networks to better understand their core.
+	</p>
+	<p>
+		A few years ago, a group of marine single-celled organisms called <a
+			href="http://www.tolweb.org/Choanoflagellates">choanoflagellates</a>
+		emerged as the closest existing relatives of multicellular animals
+		(metazoans), and were found to contain a few tyrosine kinases and
+		other metazoan-characteristic genes, suggesting that some of the genes
+		required for cell communication and adhesion preceded
+		multicellularity.
+	</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+
+<div class="row-fluid">
+	<h3>A genome reveals a surprise</h3
+	>
+	<p>
+		With the recent genome sequencing of the choanoflagellate <I>Monosiga
+			brevicollis</I>, we decided to see if it contained any more tyrosine
+		kinases or related genes, which include tyrosine-specific phosphatases
+		(PTPs) and phosphotyrosine (pTyr) binding SH2 or PTB domains. The
+		results were at first unbelievable: Monosiga has over 300 such genes,
+		which is more than has been seen in any metazoan, even in humans, with
+		our 100 trillion cells to co-ordinate.
+	</p>
+	<p>Apart from the mystery of why a unicellular organism would have
+		such a sophisticated signaling network, this finding provides a whole
+		new perspective into tyrosine kinase signaling. The Monosiga tyrosine
+		kinases are more distant and distinct than anything we've ever seen
+		before, and have been evolving under their own constraints for
+		hundredes of millions of years. Now we can read some of these
+		constraints and innovations from the gene sequences, and compare them
+		to what we see in metazoans.
+	</p>
+</div>
+
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<h3>A trove of novelty, and some familiar trends</h3>
+
+	<div class="row fluid">
+		<div class="col-md-9">
+			<p>First off, the Monosiga genes have very little in common with
+				their metazoan counterparts. Of the 128 tyrosine kinases, we find
+				clear orthologs for only 4 of the 20 human TK families, and
+				curiously all four are the members of the Src subgroup of
+				membrane-anchored cytoplasmic TKs with an SH3-SH2-kinase
+				architecture (these form the highlighted wedge on the tyrosine
+				kinome tree on the right). Many families of receptor tyrosine
+				kinases (RTKs) are seen, but these have only very weak similarity to
+				any of the metazoan families. Similarly, of the PTPs only four, or
+				possibly 5 of the 38 have metazoan orthologs, and 97 of the 123 SH2
+				proteins are distinct from anything seen in metazoans. This suggests
+				that the common ancestor had a limited pTyr signaling network, which
+				expanded largely independently in both lineages, giving us only now
+				the chance to see how those expansions paralleled or diverged from
+				each other.</p>
+
+			<p>
+				Despite the lack of orthology, the overall structure of the Monosiga
+				proteins is quite similar to that of the metazoans, and many likely
+				cases of convergent evolution - ending up with similar solutions to
+				the same need - arise. For more detail, see <a
+					href="{% static 'colt/data/monosiga/convergent.html' %}">Convergence between choanoflagellate and
+					metazoan pTyr signaling</a>. While re-inventing the wheel many times,
+				Monosiga also boasts a number of innovations not seen in metazoans.
+				For instance, while 26 of the 123 SH2 proteins cover all 11
+				categories of human SH2 protein, most of the rest have distinctive
+				domain structures, from very similar to metazoans to very different.
+				SH2 domains on receptor proteins are seen for the first time, as are
+				class 3 myosins linked to both PTP and SH2 domains.
+			</p>
+		</div>
+
+		<div class="col-md-3">
+			<img src="{% static 'colt/data/monosiga/Shaded_Tree_mini.png' %}"
+				alt="shaded tree mini" class="img-thumbnail" id='shaded-tree-mini'>
+		</div>
+	</div>
+	
+	
+	
+	<p>While at first glance this is another 'gee-whiz' example of the
+		surprises of genomes (as one reviewer put it), this system does start
+		to show us a highly independent evolution of phosphotyrosine
+		signaling, and so the cases of convergent and divergent evolution
+		point to both fundamental constaints and engineering possibilities in
+		the phosphotyrosine network, and provide an unique experimental system
+		that has stood the test of hundreds of millions of years of evolution.</p>
+	
+	<p>
+		We've published a brief analysis of tyrosine kinases in the genome
+		paper (which also has a nice analysis of <a href="{% static 'colt/data/monosiga/mapk.html' %}">MAPK
+			cascade evolution</a> buried in the supplement), and have a detailed
+		paper on phosphotyrosine signaling at PNAS:
+		
+	<blockquote>
+			<p>
+				<strong>The genome of the choanoflagellate <I>Monosiga brevicollis</I>
+			and the origins of metazoan multicellularity.</strong>
+			</p>
+			<p class="medium-font">King, N, Westbrook, MJ, Young, SL,
+			Kuo, A, Abedin, M, Chapman, J, Fairclough, S, Hellsten, U, Isogai, Y,
+			Letunic, I, Marr, M, Pincus, D, Putman, N, Rokas, A, Wright, KJ,
+			Zuzow, R, Dirks, W, Good, M, Goodstein, D, Lemons, D, Li, W, Lyos, J,
+			Morris, A, Nichols, S, Richter, DJ, Salamov, A, JGI Sequencing, Bork,
+			P, Lim, WA, Manning, G, Miller, WT, McGinnis, W, Shapiro, H, Tijan,
+			R, Grigoriev, IV, Rokhsar, D.</p>
+		<p class="medium-font"><strong>Nature</strong> 451, 783-788 (<a
+				href="http://www.ncbi.nlm.nih.gov/pubmed/18273011">Pubmed
+				Abstract</a>, <a
+				href="http://www.nature.com/nature/journal/v451/n7180/pdf/nature06617.pdf">PDF full text</a>)
+		</p>
+	</blockquote>
+	
+	<blockquote>
+		<p>
+			<strong>The protist, <I>Monosiga brevicollis</I>, has a
+				tyrosine kinase signaling network more elaborate and diverse than
+				found in any known metazoan.
+			</strong>
+		</p>
+		<p class="medium-font">Manning, G, Young, SL, Miller, WT, Zhai, Y.
+			(2008)</p>
+		<p class="medium-font">
+			<strong>PNAS</strong> 105: 9674-79. (<a
+				href="http://www.pnas.org/content/105/28/9674.full.pdf+html">PDF</a>,
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18621719?dopt=Abstract">Pubmed
+				abstract</a>, <a
+				href="http://www.pnas.org/content/105/28/9453.full.pdf+html">PNAS
+				Perspective</a>)
+		</p>
+		<p class="medium-font">
+			Press Coverage: <a
+				href=http://www.salk.edu/news/news_press_details.php?id=229">Salk
+				PR</a>, <a
+				href="http://abcnews.go.com/Technology/Story?id=5381182&page=1">ABC
+				News</a>, <a
+				href="http://blog.wired.com/wiredscience/2008/07/primitive-micro.html">Wired</a>,
+			<a
+				href="http://www.realscience.org.uk/science-news-Monosiga-kinase-genes.html">Real
+				Science</a>.
+		</p>
+		<p class="medium-font">
+			Chosen as a <A
+				HREF="http://stke.sciencemag.org/cgi/content/full/sigtrans;2/52/eg1">2008
+				Signaling Breakthrough of the Year</A> by Science Signaling, and an <A
+				HREF="http://www.sciencemag.org/cgi/reprint/321/5889/613c.pdf">Editor's
+				Choice</A> by Science.
+		</p>
+	</blockquote>
+
+	<p>A similar analysis was also published by David Pincus et al. There are
+	major differences between what they see and what we see, which we
+	address on this
+	<a href="{% static 'colt/data/monosiga/pincus_comparison.html' %}">comparison page</a>.
+	</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<h3>Resources</h3>
+	All Monosiga sequences (TKs, PTPs, SH2s and PTBs) and classification
+	are now available through our <a href="{% url 'colt:kinbase' %}">KinBase</a> database,
+	where domain structures and alignments can also be generated (the PTP,
+	SH2 and PTB proteins are included as families under the "TK-assoc"
+	group). As the genome sequence is still in draft form, many sequences
+	have gaps and may include spurious fragments, so are not as high
+	quality as other finished kinomes. Other resources on Monosiga and
+	choanoflagellates include:
+	<ul>
+		<li>The Monosiga <a
+			href="http://www.ncbi.nlm.nih.gov/pubmed/18273011">genome paper</a>
+			</li>
+		<li>The <a
+			href="http://genome.jgi-psf.org/Monbr1/Monbr1.home.html">genome
+				project page</a> at the JGI sequencing center.
+		</li>
+		<li><a
+			href="http://www.current-biology.com/content/article/fulltext?uid=PIIS0960982205001429">Introduction
+				to choanoflagellates</a>, a Current Biology article.
+		</li>
+		<li>Choanoflagellate articles at <a
+			href="http://en.wikipedia.org/wiki/Choanoflagellate">Wikipedia</a>, <a
+			href="http://www.tolweb.org/Choanoflagellates">Tree of Life</a>
+			</li>
+	</ul>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+
+{% endblock %}

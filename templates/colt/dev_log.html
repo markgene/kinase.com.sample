@@ -1,0 +1,111 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}Dev log (internal used){% endblock %}
+
+{% block content %}
+
+3/21/2014 - Gerard's comments
+<ul>
+<li>BlastP gives blank page for result</li>
+
+<li><del class="done">
+		Kinbase search page should be condensed, to get everything on one screen.
+		No need for so many boxes, and can do two columns. Replace "The Kinase Database and Manning's Gropu" with "The Kinase Database".
+		If we can get all of the search in one page (which we should), then I would put the search box at the bottom rather than the top.
+		</del> See <a href="{% url 'colt:kinbase' %}">here</a>.
+		
+</li>
+
+<li><del class="done">
+The Kinbase search gives a 404 if nothing is found - 
+the old website had a semi-helpful way to suggest alternatives and bring the user back to a search page.</del>
+Try <a href="{% url 'colt:kinbase' %}">here</a>
+
+</li>
+
+<li>
+Gene Page could also be condensed (see <a href="{% url 'colt:kinbase_gene_detail' id='5571' %}">here</a>):
+<ul>
+			<li>
+				<del class="done">- put most outside links on one line, omit the accession numbers (make the database name the hyperlink)</del>
+			</li>
+			<li>
+				<del class="done">- the gene name needs to be more prominent, and the black header at the top can be shrunk substntially</del>
+			</li>
+			<li>
+				<del class="done">- remove the "Basic Information" header and box, use the name of the gene as an overall header instead.</del>
+			</li>
+			<li>
+				<del class="done">For classification, if no subfamily, then don't print the header. Can use the "i" link on the classification header but no need to spell out the two links.</del>
+			</li>
+			<li>
+				<del class="done">- protein domains: Consider a simple initial view and less text at the top.</del>
+			</li>
+			<li>
+				- not sure if it makes sense to have blast on the same page as the search, even if we can blast a found sequence, I'd rather first find the sequence and then offer to let it be blasted.
+			</li>
+			<li><del class="done">Suggestions if no hit.</del></li>
+		</ul>
+</li>
+
+<li><del class="done">
+		The View Domains page (of multiple proteins) is pretty ugly, 
+		though I like how it has a single domain for each region. 
+		I think the box for 'full sequence' is confusing. Could we do something like the old one where the protein 
+		was a narrow bar, and the domains were fatter bars centered on that? 
+		Allowing rounded edges rather than the boxy current look would also be very helpful, I think.
+		</del>
+</li>
+	
+<li>Static pages under "About" are non-functional</li>
+
+<li>Pages under "Projects" also non-functional</li>
+</ul>
+
+<hr />
+
+<!-- Todos -->
+
+<p>Static page to add
+<ul>
+<li>http://kinase.com/kinbase/</li>
+<li><del class="done">http://kinase.com/human/kinome/phylogeny.html</del></li>
+<li>http://localhost:8000/blast/blast.html</li>
+<li><del class="done">http://kinase.com/kinbase/FastaFiles</del></li>
+<li>http://kinase.com/tools/HyperTree.html</li>
+<li><del class="done">http://kinase.com/human/psu/</del></li>
+<li>http://kinase.com/cgi-bin/KinCatMam/tools/logo.cgi.pl (colt:logo_aligner)</li>
+<li>http://kinase.com/classification/ (colt:classification)</li>
+<li>http://kinase.com/monosiga/convergent.html</li>
+<li>http://kinase.com/monosiga/mapk.html</li>
+<li>http://kinase.com/monosiga/pincus_comparison.html</li>
+<li>http://kinase.com/celegans/worm_kinase.htm</li>
+<li>http://kinase.com/celegans/worm_ptp_112399.htm</li>
+<li>http://kinase.com/celegans/Worm_ppbd_112399.htm</li>
+<li>http://kinase.com/celegans/worm_sum_112399.htm</li>
+</ul>
+</p>
+
+<p>Other
+<ul>
+<li><del class="done">scrollable dropdown menu: http://stackoverflow.com/questions/19227496/scrollable-menu-with-bootstrap-3-menu-expanding-its-container-when-it-should-n</del></li>
+<li>Custom scrollable dropdown menu. http://jscrollpane.kelvinluck.com/#download</li>
+<li>Citation for update on http://kinase.com/tetrahymena/</li>
+<li>How to deal with checkbox in JavaScript</li>
+<li><del class="done">Species checkbox</del></li>
+<li><del class="done">Gene checkbox in gene-list.html</del></li>
+<li><del class="done">Get gene sequences, alignments, and etc.</del></li>
+<li><del class="done">Group, family, subfamily page</del></li>
+<li><del class="done">Toggle pseudogenes</del></li>
+<li>Add links to sequence in alignment</li>
+<li>Web analysis</li>
+<li>Help for kinbase index</li>
+<li>Debug pviz for domain views of multiple sequences. They individual figure are striped.</li>
+</ul>
+</p>
+
+
+
+{% endblock %}

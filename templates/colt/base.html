@@ -1,0 +1,277 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+{% if ng and ng.app %}
+<html ng-app="{{ ng.app }}">
+{% else %}
+<html>
+{% endif %}
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% block meta-description %}
+<meta name="description" content="A resource on protein kinases, a key class of regulatory proteins. Includes genomic and evolutionary analyses (kinomes), classification, disease associationa and an extensive database of protein kinase genes.">
+{% endblock %}
+{% block meta-keywords %}
+<meta name="keywords" content="kinase, protein kinase, kinome, signal transduction, phosphorylate, phosphorylation, kinases, protein kinases, receptor, cytoplasmic, signaling, signalling, intracellular, model organism, fly, worm, yeast, Drosophila, C. elegans, Caenorhabditis elegans, Saccharomyces cerevisiae, Dictyostelium discoideium, Dicty, human, gene, sequence, protein, tyrosine kinase, serine, threonine, tyrosine, kinome, genomic, genome, database">
+{% endblock %}
+<meta name="author" content="Mark J Chen">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{% block title %}Kinase.Come{% endblock %}</title>
+
+<!-- Bootstrap core CSS -->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<!--  <link href="{% static "colt/css/bootstrap.min.css" %}" rel="stylesheet"> -->
+
+<!-- Bootstrap switch -->
+{% if use_bootstrap_switch %}<link href="{% static "colt/css/bootstrap3/bootstrap-switch.css" %}" rel="stylesheet">{% endif %}
+
+<!-- Custom styles for this template -->
+<link href="{% static "colt/css/main.css" %}" rel="stylesheet">
+
+<!-- Sticky footer styles -->
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+
+
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      #wrap > .container {
+        padding-top: 0px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+
+      code {
+        font-size: 80%;
+      }
+
+    </style>
+
+<!-- CSS for specific page -->
+{% block css %}{% endblock %}
+
+
+<!-- JavaScript for specific page-->
+{% block js %}
+    {% if js %}
+      {% for j in js %}
+        <script src="{% static j %}"></script>
+     {% endfor %}
+    {% endif %}
+{% endblock %}
+
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+{% if ng and ng.controller %}
+<body ng-controller="{{ ng.controller }}">
+{% else %}
+<body>
+{% endif %}
+
+<div id="wrap">
+	<!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'colt:index' %}">Kinase.com <small></small></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav vcenter">
+					<li{% if active_navbar_home %} class="active"{% endif %}><a href="{% url 'colt:index' %}">{% if use_glyphicon %}<span class="glyphicon glyphicon-home"></span> {% endif %}Home</a></li>
+					<li{% if active_navbar_about %} class="active dropdown"{% else %} class="dropdown"{% endif %} ><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">{% if use_glyphicon %}<span class="glyphicon glyphicon-wrench"></span> {% endif %}About <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'colt:about' %}">About Kinase.Com</a></li>
+							<li><a href="{% url 'colt:news' %}">News</a></li>
+							<li><a href="{% url 'colt:help_with_viewers' %}">Help with viewers</a></li>
+							<li><a href="{% url 'colt:related_sites' %}">Related Sites</a></li>
+							<li><a href="{% url 'colt:contact' %}">Contact Us</a></li>
+						</ul>
+					</li>					
+					<li{% if active_navbar_db %} class="active dropdown"{% else %} class="dropdown"{% endif %}><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">{% if use_glyphicon %}<span class="glyphicon glyphicon-search"></span> {% endif %}KinBase <b class="caret"></b></a>
+					    <ul class="dropdown-menu scrollable-menu">
+					      <li><a href="{% url 'colt:kinbase' %}"> Search</a></li>
+					      <li><a href="{% url 'colt:kinbase_browser_species' species_id=9606 %}"> Browse</a></li>
+					    </ul>
+					 </li>
+					
+					<li{% if active_navbar_wiki %} class="active"{% endif %}><a href="{% url 'colt:wiki' %}">{% if use_glyphicon %}<span class="glyphicon glyphicon-book"></span> {% endif %}Wiki</a></li>					
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">{% if use_glyphicon %}<span class="glyphicon glyphicon-road"></span> {% endif %}Kinomes <b class="caret"></b></a>
+						<ul class="dropdown-menu scrollable-menu">
+							<li><a href="{% url 'colt:human_kinome' %}">Human</a></li>
+							<li><a href="{% url 'colt:mouse_kinome' %}">Mouse</a></li>
+							<li><a href="{% url 'colt:urchin_kinome' %}">Sea Urchin</a></li>
+							<li><a href="{% url 'colt:drosophila_kinome' %}">Drosophila</a></li>
+							<li><a href="{% url 'colt:celegans_kinome' %}"><em>C. elegans</em></a></li>
+							<li><a href="{% url 'colt:sponge_kinome' %}">Sponge</a></li>
+							<li><a href="{% url 'colt:monosiga_kinome' %}"><em>Monosiga brevicollis</em></a></li>
+							<li><a href="{% url 'colt:scerevisiae_kinome' %}"><em>S. cerevisiae</em></a></li>
+							<li><a href="{% url 'colt:fungi_coprinopsis_kinome' %}"><em>Coprinopsis cinerea</em></a></li>
+							<li><a href="{% url 'colt:dictyostelium_kinome' %}"><em>Dictyostelium</em></a></li>
+							<li><a href="{% url 'colt:tetrahymena_kinome' %}"><em>Tetrahymena</em></a></li>
+							<li><a href="{% url 'colt:giardia_kinome' %}"><em>Giardia</em></a></li>							
+						    <li class="divider"></li>
+							<li><a href="{% url 'colt:microbial_kinome' %}">Microbial Kinomes</a></li>
+							<li><a href="{% url 'colt:microbial_bsk' %}">Bacterial Spore Kinases</a></li>
+						</ul>
+					</li>
+					
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">{% if use_glyphicon %}<span class="glyphicon glyphicon-road"></span> {% endif %}Projects <b class="caret"></b></a>
+						<ul class="dropdown-menu">						
+							<li><a href="{% url 'colt:evolution' %}">Kinase Evolution</a></li>
+							<li><a href="{% url 'colt:pseudokinase' %}">Pseudokinases</a></li>
+						</ul>
+					</li>
+					
+					<li{% if active_navbar_tool %} class="active dropdown"{% else %} class="dropdown"{% endif %} ><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">{% if use_glyphicon %}<span class="glyphicon glyphicon-wrench"></span> {% endif %}Tools <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'colt:blast' %}">BLAST</a></li>
+							<li><a href="{% url 'colt:hypertree' %}">HyperTree</a></li>
+							<li><a href="{% url 'colt:logos' %}">Logos</a></li>							
+						</ul>
+					</li>
+
+                     <!-- Internal 
+					<li{% if active_navbar_dev %} class="active dropdown"{% else %} class="dropdown"{% endif %} ><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">{% if use_glyphicon %}<span class="glyphicon glyphicon-wrench"></span> {% endif %}Internal <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'colt:dev_log' %}">Dev log</a></li>
+						</ul>
+					</li>
+				-->
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+	
+
+    <!-- Content -->
+	<div id="content" class="container">
+	
+	<!-- Error message -->
+	{% if error_msg %}
+	  <div id="error-msg" class="row-fluid alert alert-danger alert-dismissable">
+	  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	    <strong>Error: </strong> {% autoescape off %}{{ error_msg }}{% endautoescape %}
+	  </div>
+	{% endif %}
+	
+	<!-- Warning message -->	
+	{% if warning_msg %}
+	  <div id="warning-msg" class="row-fluid alert alert-warning alert-dismissable">
+	  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  <strong>Warning:</strong> {% autoescape off %}{{ warning_msg }}{% endautoescape %}
+	  </div>
+	{% endif %}
+	
+	<!-- Content 0 -->
+	  <div id="content0" class="row-fluid">
+	    {% block test_html %}{% endblock %}
+	    {% block content %}{% endblock %}
+	  </div> <!-- Div container0 -->
+	</div> <!-- Div container -->
+	<div id="push"></div>
+	</div> <!-- Wrap -->
+	
+	<!-- Footer -->
+	<div id="footer">
+      <div class="container">
+        <p class="text-muted">&copy; Nuabio</p>
+      </div>
+    </div>
+		
+	<script
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="{% static "colt/js/vendor/jquery-1.10.2.min.js"%}"><\/script>')</script>
+	{% if not use_pviz %}<script src="{% static "colt/js/bootstrap.min.js"%}"></script>{% endif %}
+	<script src="{% static "colt/js/bootstrap-switch.js"%}"></script>
+	<script src="{% static "colt/js/plugins.js"%}"></script>
+	<script src="{% static "colt/js/main.js"%}"></script>
+	
+	{% block select_all %}{% endblock %}
+	{% block jqueryUI %}{% endblock %}
+	{% block bootstrap_switch %}{% endblock %}
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-1288189-6');ga('send','pageview');
+        </script>
+</body>
+</html>

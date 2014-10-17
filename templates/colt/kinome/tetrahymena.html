@@ -1,0 +1,155 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}The Tetrahymena Kinome{% endblock %}
+{% block meta-description%}
+<meta name="description" content = "Detailed analysis of the Tetrahymena thermophila (ciliate) kinome, it's full complement of protein kinases">
+{% endblock %}
+{% block meta-keywords %}
+<meta name="keywords" content="kinase, protein kinase, kinome, signal transduction, phosphorylate, phosphorylation, kinases, protein kinases, receptor, cytoplasmic, signaling, signalling, intracellular, model organism,  gene, sequence, protein, tyrosine kinase, serine, threonine, tyrosine, kinome, genomic, genome, database, ciliate, Tetrahymena, thermophila, paramecium, ciliaphora, evolution">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+	<h3 class="pagination-centered">The Tetrahymena Kinome</h3>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<p>
+		As part of the sequencing and analysis of the first ciliate genome, we
+		performed an initial analysis of the <I>Tetrahymena thermophila</I>
+		kinome. The results are summarized in the Tetrahymeana genome paper:
+	</p>
+	<div class="row fluid">
+		<div class="col-md-10">
+			<blockquote>
+				<p>
+					<strong>Macronuclear Genome Sequence of the Ciliate <I>Tetrahymena
+							thermophila</I>, a model eukaryote.
+					</strong>
+				</p>
+				<p class="medium-font">J. A Eisen et al. (2006)</p>
+				<p class="medium-font">
+					PLoS Biology <B>4</B> (9): e286 (<a
+						href="http://biology.plosjournals.org/perlserv/?request=get-document&doi=10.1371/journal.pbio.0040286">Free
+						Full Text</a>)
+				</p>
+			</blockquote>
+		</div>
+	</div>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<h3>Highlights of the Tetrahymena Kinome</h3>
+	<p>Several characteristics make the Tetrahymena genome - and kinome -
+	quite unusual. For one, it is a eukaryote, but only very remotely
+	related to humans (Tetrahymena and other ciliates are members of the
+	kingdom Alveolata, distinct from both animals/fungi and plants), so
+	genes are accordingly very divergent. For another, it is single-celled
+	but large (up to 50 um long) and complex (some 27,000 predicted protein
+	coding genes, similar to that of the human genome).
+	</p>
+	<p>Within the predicted gene set, we count 1069 predicted protein
+		kinases, the largest number, and the largest fraction of the proteome
+		(3.9%) for any kinome to date. This number is very preliminary, as
+		many encode only fragments of kinase domains - at least 11 pairs
+		should probably fused into single genes - and many other even shorter
+		kinase domain fragments have been set aside for now.
+		</p>
+	<p>Only 416 kinases (39%) can be classified into previously-known
+		classes, leaving a record 653 kinases that fall into 41 new tentative
+		families (a few have homologs in plants or other distant organisms,
+		but most are ciliate-specific for now).
+		</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<h3>Casting light on the early evolution of protein kinases</h3>
+	<p>
+	The <a href="{% url 'colt:dictyostelium_kinome' %}">Dictyostelium kinome</a>
+	revealed a surprising number (24) of kinase subfamilies shared with
+	metazoans, but missing from yeast, which is closer to metazoans than is
+	Dicty. That strongly suggested that yeast had lost many kinases, and
+	some of these reflected yeast biology - loss of kinases involved in
+	splicing and motility, for instance. Dicty, fungi and metazoans are all
+	proposed members of the Unikont group, so Tetrahymena gives us our
+	first view outside of this group, and cast light on an even earlier
+	time in evolution. By comparing kinase subfamilies between organisms,
+	we see that:
+	<ul>
+
+		<li>As we go deeper in time, we lose more common kinases:
+			Tetrahymena lacks 24 kinases that were likely present in the common
+			ancestor of the other species. 7 of these are found in all other
+			kinomes analyzed, inluding two cyclin-dependent kinases (CDK7 and
+			CDK8) which may be functionally replaced by an expansion of kinases
+			that are most similar to CDC2. They also include the divergent Bub
+			and Haspin kinases, which may yet be failures in gene finding, as
+			well as the RAD53, TRRAP and CK1-D kinases. The other 17 are found in
+			Dicty and metazoans but not in yeast, suggesting that they are less
+			core to basic cellular function, being absent both from the primitive
+			Tetrahymena and the more evolved yeast. <br>&nbsp;<br>
+		</li>
+		<li>7 of the 24 kinases found in Dicty but not yeast are also
+			found in Tetrahymena, further supporting that they are ancient
+			kinases that were secondarily lost from yeast (these are MAST, DNAPK,
+			CDK/PITSLRE, Dyrk1, Dyrk2, PRP4, and Erk7). <br>&nbsp;<br>
+			</li>
+		<li>Another three kinases (p90 RSK, CDKL, TLK and Wnk) are found
+			in Tetrahymena and metazoans but not in Dicty or yeast, suggesting
+			that these may be primordial kinases that were then lost from both
+			these later branches, though they may also be derived from horizontal
+			transfer events.
+			</li>
+	</ul>
+	For more details, see <a
+		href="http://biology.plosjournals.org/perlserv?request=slideshow&type=table&doi=10.1371/journal.pbio.0040286&id=8769">Table
+		5</a> from the Tetrahymena paper and <a
+		href="http://genetics.plosjournals.org/perlserv/?request=slideshow&type=table&doi=10.1371/journal.pgen.0020038&id=6325">Table
+		1</a> from the Dictyostelium paper.
+	</p>
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+<div class="row-fluid">
+	<h3>Ciliate specialities</h3>
+	<p>
+		As well as the 61% of kinases that are currently unique to ciliates,
+		Tetrahymena also has extensive expansions of several well-known
+		kinases classes (<a
+			href="http://biology.plosjournals.org/perlserv?request=slideshow&type=table&doi=10.1371/journal.pbio.0040286&id=8769">Table
+			5</a>). The expansions of mitotic kinase classes Aurora (15 kinases),
+		CDC2 (11) and PLK (8) correlates with the complex two-nucleus biology.
+		The NEK family is also expanded (39 members) and has roles both in
+		chromosomal segregation and in control of the many distinct cilia
+		found throughout the body (Wloga et al PMID:<a
+			href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&cmd=Retrieve&dopt=AbstractPlus&list_uids=16611747&query_hl=3&itool=pubmed_docsum">16611747</a>).
+		The enormous expansions of 52 ULK members and 83 histidine kinases
+		remain functionally obscure.
+	</p>
+
+	<p>
+		All Tetrahymena sequences and classification are now available through
+		our <a href="{% url 'colt:kinbase' %}">KinBase</a> database, where
+		domain structures and alignments can also be generated.
+	</p>
+	<P>
+		Much more information is available at the <a
+			href="http://www.ciliate.org/">Tetrahymena Genome Database</a>,
+		including a useful <a href="http://www.ciliate.org/genetics.shtml">introduction
+			to ciliate genetics and biology</a>.
+</div>
+
+<div class="row-fluid spacer-min"></div>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "colt/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block title %}About Kinase.com{% endblock %}
+
+{% block content %}
+
+<div class="page-header pagination-centered">
+  <h4>About Kinase.com</h4>
+</div>
+
+<FONT face="Lucida Grande, Arial, Helvetica">Kinase.com is produced by <A HREF="http://manninglab.org">Gerard Manning</A>'s lab at the <A HREF="http://www.salk.edu">Salk Institute</A> in California. We gratefully acknowledge the financial support of the <A HREF="http://bioinformatics.salk.edu/">Razavi-Newman Center for Bioinformatics</A> at Salk and of <A HREF="http://www.cellsignal.com">Cell Signaling Technology</A>, supplier of signaling reagents and our collaborators on the creation of the human kinome poster. <H3>History</H3> Kinase.com was created in 1999 by Sucha Sudarsanam, of the biotech company Sugen to support the upcoming publication of Sugen's analysis of the protein kinases of the nematode worm, <I><a href="/celegans/">C. elegans</a></I> and previous Sugen work on the protein kinases of the yeast, <I><a href="/scerevisiae/">Saccharomyces cerevisiae</a></I>. Jonathan Bingham of Sugen designed the site and added data and several bioinformatics tools to manipulate the data. Jonathan is also the creator of the <a href="/tools/HyperTree.html">HyperTree</a> program.
+	<P>
+		The site was further developed in 2002-2003 to support further work on the protein kinases of human, <I>Drosophila</I> and the evolution of protein kinases, including the creation of KinBase, an interactive kinase database. Design was by Gerard Manning and the system was engineered and managed by Glen Charydczak.
+	<P>
+		Sugen was acquired by Pharmacia and Upjohn in 1999, later 
+		merged to form Pharmacia and in 2003 was absorbed into Pfizer. 
+		The resultant cutbacks and consolidation led to the closure of Sugen in the summer of 2003. 
+		Kinase.com was given a new home at the Salk Institute, courtesy of long-term 
+		collaborator <A HREF="http://www.salk.edu/faculty/faculty/details.php?id=27">Tony Hunter</A>, 
+		and was maintained by Gerard Manning and Glen Charydczak of <a href="http://evobio.info">Evolutionary 
+			Bioinformatics</a> until Gerard started his own research group at Salk in the summer of 2004, 
+			focusing on kinase genomics and evolution, and the website is now being run from his group. 
+			The primary site developer is Yufeng Zhai. After
+			Gerard moved to Genentech in 2012, a new website is developed and maintained by Mark Jinan Chen.
+	<P>
+		To cite our work, please see the listing of papers under individual organisms for the most appropriate citation. For permission to reproduce the human kinome poster, you may need permission from both Science magazine and Cell Signaling Technology, which is being readily given. Please use our <A HREF="{% url 'colt:contact' %}">contact form</A> for more details<A HREF="http://kinase.com/kinbase/genenames/index.html">.</A>
+
+		<div class="row-fluid spacer"></div>
+
+
+{% endblock %}
